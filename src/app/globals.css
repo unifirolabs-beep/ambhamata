@@ -1,0 +1,205 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,400;1,700&family=Noto+Sans+Devanagari:wght@400;500;600;700;800&family=Noto+Sans+Kannada:wght@400;500;600;700;800&family=Noto+Sans+Telugu:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-inter: 'Lato', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --font-noto-kannada: "Noto Sans Kannada", "Segoe UI", "Tunga", "Kedage", "Mallige", -apple-system, sans-serif;
+    --font-noto-devanagari: "Noto Sans Devanagari", "Mangal", "Aparajita", "Utsaah", "Segoe UI", -apple-system, sans-serif;
+    --font-noto-telugu: "Noto Sans Telugu", "Gautami", "Vani", "Segoe UI", -apple-system, sans-serif;
+
+    /* Brand Foundation Tokens: Divine Yellow (#F4C542), White (#FFFFFF), Kumkum Red (#A61932) */
+    --brand-yellow: 43 89% 61%;         /* #F4C542 */
+    --brand-yellow-light: 43 89% 95%;   /* #FCF7E8 */
+    --brand-yellow-subtle: 43 85% 82%;  /* #F8E39E */
+    --brand-yellow-dark: 41 85% 44%;    /* #CE950D */
+
+    --brand-red: 349 74% 37%;           /* #A61932 */
+    --brand-red-light: 349 60% 96%;     /* #FDF3F5 */
+    --brand-red-subtle: 349 45% 88%;    /* #F5D3D9 */
+    --brand-red-dark: 349 78% 26%;      /* #750E21 */
+    --brand-red-deep: 349 84% 15%;      /* #460511 */
+
+    --brand-white: 0 0% 100%;           /* #FFFFFF */
+    --brand-cream: 36 33% 98%;          /* #FAF8F5 */
+
+    /* Semantic UI Tokens mapped to Brand Hierarchy */
+    --background: 0 0% 100%;
+    --foreground: 349 84% 12%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 349 84% 12%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 349 84% 12%;
+
+    /* Primary: Divine Yellow */
+    --primary: var(--brand-yellow);
+    --primary-foreground: 349 84% 15%;
+
+    /* Secondary: Kumkum Red */
+    --secondary: var(--brand-red);
+    --secondary-foreground: 0 0% 100%;
+
+    /* Muted & Accent */
+    --muted: 36 30% 96%;
+    --muted-foreground: 349 15% 42%;
+
+    --accent: var(--brand-yellow-light);
+    --accent-foreground: var(--brand-red);
+
+    --destructive: var(--brand-red);
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 36 20% 90%;
+    --input: 36 20% 90%;
+    --ring: var(--brand-red);
+
+    --radius: 0.5rem;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-text-size-adjust: 100%;
+    overflow-x: hidden;
+    width: 100%;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Lato', var(--font-noto-kannada), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    overflow-x: hidden;
+    width: 100%;
+    touch-action: manipulation;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Accessibility: Visible Focus Rings */
+  :focus-visible {
+    @apply outline-none ring-2 ring-ring ring-offset-2 ring-offset-background;
+  }
+
+  /* Motion respect */
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+/* Continuous Right-to-Left Sacred Marquee Animation */
+@keyframes marqueeScrollRightToLeft {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.animate-marquee-continuous {
+  display: flex !important;
+  width: max-content !important;
+  will-change: transform;
+  animation: marqueeScrollRightToLeft 25s linear infinite !important;
+}
+
+.animate-marquee-continuous:hover {
+  animation-play-state: paused !important;
+}
+
+/* Reusable Component Utility Classes */
+@layer components {
+  /* Reusable Sacred Buttons */
+  .btn-divine {
+    @apply inline-flex items-center justify-center rounded-md font-semibold text-sm transition-all duration-200
+      bg-brand-yellow text-brand-red-deep hover:bg-brand-yellow-dark shadow-temple-gold
+      focus-visible:ring-2 focus-visible:ring-brand-red active:scale-[0.98] disabled:opacity-50 disabled:pointer-events-none;
+  }
+
+  .btn-kumkum {
+    @apply inline-flex items-center justify-center rounded-md font-semibold text-sm transition-all duration-200
+      bg-brand-red text-white hover:bg-brand-red-dark shadow-temple-kumkum
+      focus-visible:ring-2 focus-visible:ring-brand-yellow active:scale-[0.98] disabled:opacity-50 disabled:pointer-events-none;
+  }
+
+  .btn-outline-temple {
+    @apply inline-flex items-center justify-center rounded-md font-medium text-sm transition-all duration-200
+      border border-brand-red/30 bg-transparent text-brand-red hover:bg-brand-red-light
+      focus-visible:ring-2 focus-visible:ring-brand-red active:scale-[0.98];
+  }
+
+  /* Reusable Cards */
+  .card-feature-kumkum {
+    @apply rounded-xl border border-brand-red/15 bg-white p-6 shadow-temple-sm transition-all duration-300
+      hover:border-brand-red/40 hover:shadow-temple-md;
+  }
+
+  .card-service-temple {
+    @apply rounded-xl border border-brand-yellow/30 bg-brand-cream p-6 shadow-temple-sm transition-all duration-300
+      hover:border-brand-yellow hover:shadow-temple-gold;
+  }
+
+  /* Sacred Section Typography */
+  .heading-temple-primary {
+    @apply font-bold tracking-tight text-brand-red;
+  }
+
+  .heading-temple-secondary {
+    @apply font-semibold text-brand-red-dark;
+  }
+
+  /* Subtle Temple Decorative Divider */
+  .temple-divider {
+    @apply mx-auto my-6 h-[2px] w-24 rounded-full bg-gradient-to-r from-transparent via-brand-yellow to-transparent;
+  }
+
+  /* Marquee hover pause */
+  .pause-hover:hover {
+    animation-play-state: paused;
+  }
+
+  /* Hide scrollbars while retaining scrollability */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  /* Cross-platform GPU Acceleration for buttery smooth 60/120fps animations */
+  .smooth-gpu {
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+    will-change: transform, opacity;
+  }
+}
+
+/* Mobile Touch Interaction Smoothness */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Fast tap response & prevent double-tap zoom delay */
+a, button, [role="button"], input, select, textarea {
+  touch-action: manipulation;
+}
+
+/* Native momentum scrolling on touch devices */
+.scroll-touch {
+  -webkit-overflow-scrolling: touch;
+}
+

@@ -1,0 +1,27 @@
+{
+  "common": {
+    "templeName": "Sri Ambadevi Devasthana",
+    "templeTagline": "Sacred Abode of Divine Grace",
+    "bookSeva": "Book Seva",
+    "donate": "Devotional Offering",
+    "darshanTimings": "Darshan Timings",
+    "viewMore": "View Details",
+    "readMore": "Read More",
+    "language": "Language",
+    "kannada": "ಕನ್ನಡ",
+    "hindi": "हिन्दी",
+    "telugu": "తెలుగు",
+    "english": "English",
+    "copyright": "All Rights Reserved. Sri Ambadevi Devasthana."
+  },
+  "nav": {
+    "home": "Home",
+    "about": "About Temple",
+    "sevas": "Pooja & Sevas",
+    "timings": "Darshan & Timings",
+    "festivals": "Events & Festivals",
+    "gallery": "Gallery",
+    "contact": "Contact & Donations"
+  }
+}
+

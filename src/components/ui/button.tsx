@@ -1,0 +1,61 @@
+import * as React from "react";
+import { Slot } from "@radix-ui/react-slot";
+import { cva, type VariantProps } from "class-variance-authority";
+import { cn } from "@/lib/utils";
+
+const buttonVariants = cva(
+  "inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 select-none",
+  {
+    variants: {
+      variant: {
+        // Divine Yellow - Primary Highlights & Sacred Actions
+        default:
+          "bg-brand-yellow text-brand-red-deep font-semibold shadow-temple-gold hover:bg-brand-yellow-dark active:scale-[0.98]",
+        // Kumkum Red - Feature & Important Secondary Actions
+        kumkum:
+          "bg-brand-red text-white font-semibold shadow-temple-kumkum hover:bg-brand-red-dark active:scale-[0.98]",
+        secondary:
+          "bg-brand-red-light text-brand-red hover:bg-brand-red/10 border border-brand-red/20",
+        outline:
+          "border border-brand-red/30 bg-transparent text-brand-red hover:bg-brand-red-light hover:text-brand-red-dark",
+        ghost:
+          "text-foreground hover:bg-brand-yellow-light hover:text-brand-red",
+        link:
+          "text-brand-red underline-offset-4 hover:underline",
+      },
+      size: {
+        default: "h-11 px-5 py-2 min-h-[44px]", // Accessible touch target
+        sm: "h-9 rounded-md px-3 text-xs min-h-[36px]",
+        lg: "h-12 rounded-md px-8 text-base min-h-[48px]",
+        icon: "h-11 w-11 min-h-[44px] min-w-[44px]",
+      },
+    },
+    defaultVariants: {
+      variant: "default",
+      size: "default",
+    },
+  }
+);
+
+export interface ButtonProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
+    VariantProps<typeof buttonVariants> {
+  asChild?: boolean;
+}
+
+const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
+  ({ className, variant, size, asChild = false, ...props }, ref) => {
+    const Comp = asChild ? Slot : "button";
+    return (
+      <Comp
+        className={cn(buttonVariants({ variant, size, className }))}
+        ref={ref}
+        {...props}
+      />
+    );
+  }
+);
+Button.displayName = "Button";
+
+export { Button, buttonVariants };
+
