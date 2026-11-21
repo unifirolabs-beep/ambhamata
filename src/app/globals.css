@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,400;1,700&family=Noto+Sans+Devanagari:wght@400;500;600;700;800&family=Noto+Sans+Kannada:wght@400;500;600;700;800&family=Noto+Sans+Telugu:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,400;1,700&family=Noto+Sans+Devanagari:wght@400;500;600;700;800&family=Noto+Sans+Kannada:wght@400;500;600;700;800&family=Noto+Sans+Telugu:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -158,6 +158,10 @@
 
   .heading-temple-secondary {
     @apply font-semibold text-brand-red-dark;
+  }
+
+  .font-heritage-serif {
+    font-family: 'Playfair Display', Georgia, 'Times New Roman', var(--font-noto-kannada), var(--font-noto-devanagari), var(--font-noto-telugu), serif;
   }
 
   /* Subtle Temple Decorative Divider */

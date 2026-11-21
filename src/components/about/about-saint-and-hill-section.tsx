@@ -113,34 +113,41 @@ export function AboutSaintAndHillSection() {
                 </p>
               </div>
 
-              {/* Saint Legacy Summary Box (#FFF7E2 Code) */}
+              {/* Saint Portrait & Legacy Card (#FFF7E2 Code) */}
               <motion.div
                 initial={{ opacity: 0, x: 20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-                className="lg:col-span-4 p-6 rounded-2xl bg-[#FFF7E2] text-[#292929] border border-[#E8B947]/70 shadow-xs flex flex-col justify-between h-full transition-all duration-300 hover:-translate-y-1 hover:shadow-md hover:border-[#D49812]"
+                className="lg:col-span-4 p-5 sm:p-6 rounded-2xl bg-[#FFF7E2] text-[#292929] border border-[#E8B947]/70 shadow-xs flex flex-col justify-between h-full transition-all duration-300 hover:-translate-y-1 hover:shadow-md hover:border-[#D49812]"
               >
                 <div>
-                  <div className="w-12 h-12 rounded-xl bg-white border border-[#E8B947]/50 p-2 flex items-center justify-center mb-4 shadow-xs">
+                  <div className="relative mx-auto w-full max-w-[260px] sm:max-w-[280px] lg:max-w-full aspect-[3/4] rounded-xl overflow-hidden border border-[#E8B947]/55 bg-white shadow-xs mb-4">
                     <Image
-                      src="/vedic icon.png"
-                      alt="Spiritual Legacy"
-                      width={32}
-                      height={32}
+                      src="/chidhanandha.png"
+                      alt={
+                        locale === "kn"
+                          ? "ಪರಮ ಪೂಜ್ಯ ಶ್ರೀ ಚಿದಾನಂದ ಅವಧೂತರು"
+                          : locale === "hi"
+                          ? "परम पूज्य श्री चिदानंद अवधूत"
+                          : locale === "te"
+                          ? "పరమ పూజ్య శ్రీ చిదానంద అవధూత"
+                          : "Param Poojya Sri Chidananda Avadhoota"
+                      }
+                      fill
                       unoptimized
-                      className="h-full w-full object-contain"
+                      className="object-cover object-top transition-transform duration-500 hover:scale-[1.03]"
                     />
                   </div>
-                  <h3 className={cn("font-bold text-xl text-[#8B1538] mb-3 leading-snug", fontClass)}>
+                  <h3 className={cn("font-bold text-lg sm:text-xl text-[#8B1538] mb-2 leading-snug", fontClass)}>
                     {s2.legacyEyebrow}
                   </h3>
-                  <p className={cn("text-sm text-[#4A4A4A] leading-relaxed mb-6 font-normal", fontClass)}>
+                  <p className={cn("text-sm text-[#4A4A4A] leading-relaxed mb-4 font-normal", fontClass)}>
                     {s2.legacyText}
                   </p>
                 </div>
 
-                <div className={cn("pt-4 border-t border-[#E8B947]/40 text-xs text-[#8B1538] font-bold text-center", fontClass, locale === "en" && "font-sans italic")}>
+                <div className={cn("pt-3.5 border-t border-[#E8B947]/40 text-xs text-[#8B1538] font-bold text-center", fontClass, locale === "en" && "font-sans italic")}>
                   {locale === "kn"
                     ? "ಪರಮ ಪೂಜ್ಯ ಶ್ರೀ ಚಿದಾನಂದ ಅವಧೂತರು • ಸಿದ್ಧ ಪರ್ವತ"
                     : locale === "hi"

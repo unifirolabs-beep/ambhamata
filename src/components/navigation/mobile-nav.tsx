@@ -14,10 +14,17 @@ import {
   Clock,
   CalendarCheck,
   ImageIcon,
+  ChevronDown,
   ChevronRight,
+  MapPin,
   Phone,
+  Sparkles,
 } from "lucide-react";
-import { siteConfig } from "@/config/site";
+import {
+  getLocalizedNavTitle,
+  getNavLocaleFontClass,
+  siteConfig,
+} from "@/config/site";
 import { LanguageSwitcher } from "@/components/shared/language-switcher";
 import { useLocale } from "@/context/locale-context";
 import { cn } from "@/lib/utils";
@@ -29,8 +36,12 @@ interface MobileNavProps {
 export function MobileNav({ className }: MobileNavProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
+  const [openGroups, setOpenGroups] = useState<Record<string, boolean>>({
+    "Online Services": true,
+  });
   const pathname = usePathname();
   const { locale } = useLocale();
+  const fontClass = getNavLocaleFontClass(locale);
 
   useEffect(() => {
     setMounted(true);
@@ -82,6 +93,8 @@ export function MobileNav({ className }: MobileNavProps) {
         return CalendarCheck;
       case "/gallery":
         return ImageIcon;
+      case "/places-to-visit":
+        return MapPin;
       case "/contact":
         return Phone;
       default:
@@ -168,29 +181,159 @@ export function MobileNav({ className }: MobileNavProps) {
               : "Temple Pages"}
           </span>
 
-          {siteConfig.navItems.map((item) => {
-            const isActive =
-              pathname === item.href ||
-              (item.href !== "/" && pathname?.startsWith(item.href));
-            const IconComponent = getNavIcon(item.href);
+          {siteConfig.headerNavItems.map((item) => {
+            const isRouteActive = (href: string) =>
+              pathname === href ||
+              (href !== "/" && Boolean(pathname?.startsWith(href)));
 
-            const primaryTitle =
-              locale === "kn"
-                ? (item.kannadaTitle || item.title)
-                : locale === "hi"
-                ? (item.hindiTitle || item.title)
-                : locale === "te"
-                ? (item.teluguTitle || item.title)
-                : item.title;
-
+            const primaryTitle = getLocalizedNavTitle(item, locale);
             const secondaryTitle =
-              locale === "kn"
-                ? item.title
-                : locale === "hi"
-                ? item.title
-                : locale === "te"
-                ? item.title
-                : item.kannadaTitle;
+              locale === "en" ? item.kannadaTitle : item.title;
+
+            if (item.children && item.children.length > 0) {
+              const isGroupActive = item.children.some((child) =>
+                isRouteActive(child.href)
+              );
+              const isExpanded = openGroups[item.title] ?? isGroupActive;
+
+              return (
+                <div key={item.title} className="space-y-1.5">
+                  <button
+                    type="button"
+                    aria-expanded={isExpanded}
+                    onClick={() =>
+                      setOpenGroups((prev) => ({
+                        ...prev,
+                        [item.title]: !isExpanded,
+                      }))
+                    }
+                    className={cn(
+                      "w-full group flex items-center justify-between rounded-xl px-3.5 py-3 text-base transition-all duration-200 select-none min-h-[52px] cursor-pointer text-left",
+                      isGroupActive
+                        ? "bg-[#8B1538] text-white shadow-md font-semibold"
+                        : "bg-white/80 border border-[#E8B947]/40 text-[#460511] hover:bg-[#FFF1B5] hover:border-[#D49812] hover:text-[#74132A]"
+                    )}
+                  >
+                    <div className="flex items-center gap-3">
+                      <div
+                        className={cn(
+                          "w-8 h-8 rounded-lg flex items-center justify-center transition-colors",
+                          isGroupActive
+                            ? "bg-white/20 text-[#FFE6A0]"
+                            : "bg-[#FFF9EB] text-[#8B1538] group-hover:bg-[#8B1538] group-hover:text-white"
+                        )}
+                      >
+                        <Sparkles className="h-4 w-4" />
+                      </div>
+
+                      <div className="flex flex-col">
+                        <span
+                          className={cn(
+                            "text-sm sm:text-base leading-tight font-bold",
+                            fontClass
+                          )}
+                        >
+                          {primaryTitle}
+                        </span>
+                        {secondaryTitle && (
+                          <span
+                            className={cn(
+                              "text-xs leading-tight mt-0.5 font-sans opacity-70",
+                              isGroupActive ? "text-[#FFE6A0]" : "text-[#8B1538]/70"
+                            )}
+                          >
+                            {secondaryTitle}
+                          </span>
+                        )}
+                      </div>
+                    </div>
+
+                    <ChevronDown
+                      className={cn(
+                        "h-4 w-4 transition-transform duration-200",
+                        isExpanded && "rotate-180",
+                        isGroupActive ? "text-[#FFE6A0]" : "text-[#8B1538]/60"
+                      )}
+                    />
+                  </button>
+
+                  {isExpanded && (
+                    <div className="ml-3 pl-2.5 border-l border-[#E8B947]/55 space-y-1.5 py-0.5">
+                      {item.children.map((child) => {
+                        const isChildActive = isRouteActive(child.href);
+                        const ChildIcon = getNavIcon(child.href);
+                        const childPrimary = getLocalizedNavTitle(child, locale);
+                        const childSecondary =
+                          locale === "en" ? child.kannadaTitle : child.title;
+
+                        return (
+                          <Link
+                            key={child.href}
+                            href={child.href}
+                            onClick={() => setIsOpen(false)}
+                            className={cn(
+                              "group flex items-center justify-between rounded-xl px-3 py-2.5 text-sm transition-all duration-200 select-none min-h-[46px]",
+                              isChildActive
+                                ? "bg-[#8B1538] text-white shadow-sm font-semibold"
+                                : "bg-[#FFF7E2] border border-[#E8B947]/45 text-[#460511] hover:bg-[#FFF1B5] hover:border-[#D49812] hover:text-[#74132A]"
+                            )}
+                          >
+                            <div className="flex items-center gap-2.5">
+                              <div
+                                className={cn(
+                                  "w-7 h-7 rounded-lg flex items-center justify-center transition-colors",
+                                  isChildActive
+                                    ? "bg-white/20 text-[#FFE6A0]"
+                                    : "bg-white/80 text-[#8B1538] group-hover:bg-[#8B1538] group-hover:text-white"
+                                )}
+                              >
+                                <ChildIcon className="h-3.5 w-3.5" />
+                              </div>
+
+                              <div className="flex flex-col">
+                                <span
+                                  className={cn(
+                                    "text-sm leading-tight font-bold",
+                                    fontClass
+                                  )}
+                                >
+                                  {childPrimary}
+                                </span>
+                                {childSecondary && (
+                                  <span
+                                    className={cn(
+                                      "text-[11px] leading-tight mt-0.5 font-sans opacity-70",
+                                      isChildActive
+                                        ? "text-[#FFE6A0]"
+                                        : "text-[#8B1538]/70"
+                                    )}
+                                  >
+                                    {childSecondary}
+                                  </span>
+                                )}
+                              </div>
+                            </div>
+
+                            <ChevronRight
+                              className={cn(
+                                "h-4 w-4 transition-transform group-hover:translate-x-0.5",
+                                isChildActive
+                                  ? "text-[#FFE6A0]"
+                                  : "text-[#8B1538]/40"
+                              )}
+                            />
+                          </Link>
+                        );
+                      })}
+                    </div>
+                  )}
+                </div>
+              );
+            }
+
+            if (!item.href) return null;
+            const isActive = isRouteActive(item.href);
+            const IconComponent = getNavIcon(item.href);
 
             return (
               <Link
@@ -220,9 +363,7 @@ export function MobileNav({ className }: MobileNavProps) {
                     <span
                       className={cn(
                         "text-sm sm:text-base leading-tight font-bold",
-                        locale === "kn" && "font-kannada",
-                        locale === "hi" && "font-hindi",
-                        locale === "te" && "font-telugu"
+                        fontClass
                       )}
                     >
                       {primaryTitle}
@@ -230,8 +371,7 @@ export function MobileNav({ className }: MobileNavProps) {
                     {secondaryTitle && (
                       <span
                         className={cn(
-                          "text-xs leading-tight mt-0.5",
-                          locale === "kn" ? "font-sans opacity-70" : "font-sans opacity-70",
+                          "text-xs leading-tight mt-0.5 font-sans opacity-70",
                           isActive ? "text-[#FFE6A0]" : "text-[#8B1538]/70"
                         )}
                       >
