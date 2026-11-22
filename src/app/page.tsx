@@ -5,8 +5,9 @@ import { AboutAmbamata } from "@/components/home/about-ambamata";
 import { TempleSevasSection } from "@/components/home/temple-sevas-section";
 import { EventsAndFestivalsSection } from "@/components/home/events-and-festivals-section";
 import { StoneMantapInaugurationSection } from "@/components/home/stone-mantap-inauguration-section";
-import { GovernmentListingSection } from "@/components/shared/government-listing-section";
 import { HomeFaqAndGuideSection } from "@/components/home/home-faq-and-guide-section";
+import { TempleTransitionVideoSection } from "@/components/home/temple-transition-video-section";
+import { GovernmentListingSection } from "@/components/shared/government-listing-section";
 
 export const metadata: Metadata = {
   title: "Sri Ambadevi Devasthana | Sukṣhetra Siddha Parvatha Somalapura Sindhanur",
@@ -64,6 +65,7 @@ export default function HomePage() {
       <EventsAndFestivalsSection />
       <StoneMantapInaugurationSection />
       <HomeFaqAndGuideSection />
+      <TempleTransitionVideoSection />
       <GovernmentListingSection />
     </main>
   );
