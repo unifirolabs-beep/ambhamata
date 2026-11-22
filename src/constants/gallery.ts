@@ -40,7 +40,6 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     "aspect": "portrait",
     "featured": true
   },
-
   {
     "id": "devi-ambadevi-sacred-darshan",
     "category": "devi",
