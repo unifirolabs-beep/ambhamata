@@ -4,6 +4,7 @@ import { AboutHeroBanner } from "@/components/about/about-hero-banner";
 import { AboutHistorySection } from "@/components/about/about-history-section";
 import { AboutSaintAndHillSection } from "@/components/about/about-saint-and-hill-section";
 import { AboutDeviAndPuranaSection } from "@/components/about/about-devi-and-purana-section";
+import { AboutTempleVideoSection } from "@/components/about/about-temple-video-section";
 import { GovernmentListingSection } from "@/components/shared/government-listing-section";
 import { AboutVisionSection } from "@/components/about/about-vision-section";
 import { JsonLd, createBreadcrumbSchema } from "@/components/seo/json-ld";
@@ -72,7 +73,10 @@ export default function AboutPage() {
       {/* 4. Section 4: Sri Ambadevi – The Divine Mother & Section 5: Devi Purana and Sacred Traditions */}
       <AboutDeviAndPuranaSection />
 
-      {/* 5. Official Government of Karnataka HR&CE Listing */}
+      {/* 5. Documentary Video: History & New Construction of Sri Ambadevi Temple */}
+      <AboutTempleVideoSection />
+
+      {/* 6. Official Government of Karnataka HR&CE Listing */}
       <GovernmentListingSection />
 
       {/* 6. Section 6: Our Vision & Spiritual Heritage and Sacred Blessing Banner */}
