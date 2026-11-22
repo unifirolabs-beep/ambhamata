@@ -4,7 +4,6 @@ import { HeroSection } from "@/components/home/hero-section";
 import { AboutAmbamata } from "@/components/home/about-ambamata";
 import { TempleSevasSection } from "@/components/home/temple-sevas-section";
 import { EventsAndFestivalsSection } from "@/components/home/events-and-festivals-section";
-import { StoneMantapInaugurationSection } from "@/components/home/stone-mantap-inauguration-section";
 import { GovernmentListingSection } from "@/components/shared/government-listing-section";
 import { HomeFaqAndGuideSection } from "@/components/home/home-faq-and-guide-section";
 
@@ -62,7 +61,6 @@ export default function HomePage() {
       <AboutAmbamata />
       <TempleSevasSection />
       <EventsAndFestivalsSection />
-      <StoneMantapInaugurationSection />
       <HomeFaqAndGuideSection />
       <GovernmentListingSection />
     </main>

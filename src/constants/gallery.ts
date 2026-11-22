@@ -40,25 +40,7 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     "aspect": "portrait",
     "featured": true
   },
-  {
-    "id": "devi-moola-idol-sanctum",
-    "category": "devi",
-    "title": "Sri Ambadevi Moola Vigraha Idol Darshana",
-    "kannadaTitle": "ಶ್ರೀ ಅಂಬಾದೇವಿ ಮೂಲ ಮೂರ್ತಿ ಗರ್ಭಗುಡಿ ದರ್ಶನ",
-    "hindiTitle": "श्री अम्बादेवी मूल विग्रह गर्भगृह दर्शन",
-    "teluguTitle": "శ్రీ అంబాదేవి మూల విగ్రహం గర్భగుడి దర్శనం",
-    "tag": "Sanctum Sanctorum",
-    "kannadaTag": "ಮೂಲ ಗರ್ಭಗುಡಿ",
-    "hindiTag": "मूल गर्भगृह",
-    "teluguTag": "మూల గర్భగుడి",
-    "description": "The sacred stone moola vigraha of Goddess Sri Ambadevi consecrated at the holy sanctum sanctorum of Somalapura.",
-    "kannadaDescription": "ಸುಕ್ಷೇತ್ರ ಸಿದ್ಧ ಪರ್ವತದ ಪವಿತ್ರ ಗರ್ಭಗುಡಿಯಲ್ಲಿ ನೆಲೆಸಿರುವ ಜಗನ್ಮಾತೆ ಶ್ರೀ ಅಂಬಾದೇವಿಯ ಪಾವನ ಮೂಲ ಮೂರ್ತಿ.",
-    "hindiDescription": "सुक्षेत्र सिद्ध पर्वत के पवित्र गर्भगृह में विराजित जगन्माता श्री अम्बादेवी की पावन मूल मूर्ति।",
-    "teluguDescription": "సుక్షేత్ర సిద్ధ పర్వత పవిత్ర గర్భగుడిలో కొలువైన జగన్మాత శ్రీ అంబాదేవి పావన మూల మూర్తి.",
-    "image": "/gallery/devi idol.jpeg",
-    "aspect": "portrait",
-    "featured": true
-  },
+
   {
     "id": "devi-ambadevi-sacred-darshan",
     "category": "devi",

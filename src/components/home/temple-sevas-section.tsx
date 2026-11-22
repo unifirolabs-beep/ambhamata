@@ -1,12 +1,9 @@
 "use client";
 
 import React from "react";
-import Link from "next/link";
 import { FEATURED_SEVAS } from "@/constants/sevas";
 import { FeaturedSevaCardItem } from "@/components/home/featured-seva-card";
-import { OtherSevasPanel } from "@/components/home/other-sevas-panel";
 import { useContentTranslation } from "@/messages/content-translations";
-import { ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 export function TempleSevasSection() {
@@ -94,29 +91,6 @@ export function TempleSevasSection() {
             </span>
           </div>
         </div>
-
-        {/* 4. "View All Sevas" Button */}
-        <div className="mt-8 sm:mt-10 flex justify-center">
-          <Link
-            href="/sevas"
-            className={cn(
-              "group inline-flex items-center justify-center gap-2.5",
-              "px-8 sm:px-10 py-3 sm:py-3.5 rounded-lg",
-              "bg-[#8B1538] text-white font-sans font-bold text-sm sm:text-base tracking-wide",
-              "border border-[#E5B53D]/70 shadow-[0_6px_20px_rgba(0,0,0,0.35)]",
-              "transition-all duration-300 ease-out",
-              "hover:bg-[#F4C542] hover:text-[#74132A] hover:border-[#D49812] hover:shadow-[0_8px_24px_rgba(244,197,66,0.45)] hover:scale-105",
-              fontClass
-            )}
-          >
-            <span>{t.sevasHome.viewAllBtn}</span>
-            <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-          </Link>
-        </div>
-
-        {/* 5. Other Sevas Banner Panel */}
-        <OtherSevasPanel />
-
       </div>
     </section>
   );
