@@ -1,0 +1,49 @@
+# ==============================================================
+# Hostinger Apache Configuration for Sri Ambadevi Devasthana
+# Next.js Static Export Configuration & SEO Optimization
+# ==============================================================
+
+RewriteEngine On
+
+# 1. Force HTTPS (SSL Security)
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# 2. Canonical www Redirection
+RewriteCond %{HTTP_HOST} ^sriambadevidevasthanambamath\.com [NC]
+RewriteRule ^(.*)$ https://www.sriambadevidevasthanambamath.com/$1 [L,R=301]
+
+# 3. Serve existing files directly
+RewriteCond %{REQUEST_FILENAME} -f
+RewriteRule ^ - [L]
+
+# 4. Route cleanly to folder index.html (e.g., /about -> /about/index.html)
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteCond %{REQUEST_FILENAME}/index.html -f
+RewriteRule ^ - [L]
+
+RewriteCond %{DOCUMENT_ROOT}/$1/index.html -f
+RewriteRule ^(.*)$ /$1/index.html [L]
+
+# 5. Fallback 404 Page
+ErrorDocument 404 /404.html
+
+# 6. Browser Caching for High Performance & SEO Score
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresDefault "access plus 2 days"
+  ExpiresByType image/jpg "access plus 1 year"
+  ExpiresByType image/jpeg "access plus 1 year"
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType image/webp "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 year"
+  ExpiresByType image/x-icon "access plus 1 year"
+  ExpiresByType text/css "access plus 1 month"
+  ExpiresByType application/javascript "access plus 1 month"
+  ExpiresByType application/font-woff2 "access plus 1 year"
+</IfModule>
+
+# 7. Enable GZIP / Deflate Compression
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css application/javascript application/json application/xml
+</IfModule>
