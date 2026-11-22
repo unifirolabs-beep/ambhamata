@@ -448,6 +448,7 @@ export const teContentTranslation: ContentTranslation = {
       devi: "దేవి దర్శనం",
       construction: "ఆలయ నిర్మాణం",
       jathara: "జాతర మహోత్సవం",
+      videos: "వీడియోలు (Shorts)",
     },
     highlights: {
       eyebrow: "సుక్షేత్ర సిద్ధ పర్వత విశిష్టత",

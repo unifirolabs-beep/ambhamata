@@ -1,8 +1,8 @@
-export type GalleryCategory = "all" | "devi" | "construction" | "jathara";
+export type GalleryCategory = "all" | "devi" | "construction" | "jathara" | "videos";
 
 export interface GalleryItem {
   id: string;
-  category: "devi" | "construction" | "jathara";
+  category: "devi" | "construction" | "jathara" | "videos";
   title: string;
   kannadaTitle: string;
   hindiTitle?: string;
@@ -18,9 +18,166 @@ export interface GalleryItem {
   image: string;
   aspect?: "square" | "portrait" | "landscape" | "wide";
   featured?: boolean;
+  isVideo?: boolean;
+  videoId?: string;
+  youtubeUrl?: string;
 }
 
 export const GALLERY_ITEMS: GalleryItem[] = [
+  {
+    "id": "video-short-1",
+    "category": "videos",
+    "title": "Sri Ambadevi Divine Darshan & Sanctum Alankara",
+    "kannadaTitle": "ಶ್ರೀ ಅಂಬಾದೇವಿ ದಿವ್ಯ ದರ್ಶನ ಮತ್ತು ಗರ್ಭಗುಡಿ ಅಲಂಕಾರ",
+    "hindiTitle": "श्री अम्बादेवी दिव्य दर्शन एवं गर्भगृह शृंगार",
+    "teluguTitle": "శ్రీ అంబాదేవి దివ్య దర్శనం & గర్భగుడి అలంకారం",
+    "tag": "YouTube Short",
+    "kannadaTag": "ವಿಡಿಯೋ ಶಾರ್ಟ್",
+    "hindiTag": "यूट्यूब शॉर्ट",
+    "teluguTag": "యూట్యూబ్ షార్ట్",
+    "description": "Sacred divine darshan of Goddess Sri Ambadevi in magnificent alankara at Sukṣhetra Siddha Parvatha Somalapura.",
+    "kannadaDescription": "ಸುಕ್ಷೇತ್ರ ಸಿದ್ಧ ಪರ್ವತ ಸೋಮಲಾಪುರದಲ್ಲಿ ಜಗನ್ಮಾತೆ ಶ್ರೀ ಅಂಬಾದೇವಿಯ ದಿವ್ಯ ಗರ್ಭಗುಡಿ ದರ್ಶನ ಮತ್ತು ಪುಷ್ಪಾಲಂಕಾರದ ಪವಿತ್ರ ವಿಡಿಯೋ.",
+    "hindiDescription": "सुक्षेत्र सिद्ध पर्वत सोमलापुर में जगन्माता श्री अम्बादेवी का दिव्य गर्भगृह दर्शन।",
+    "teluguDescription": "సుక్షేత్ర సిద్ధ పర్వత సోమలాపురంలో జగన్మాత శ్రీ అంబాదేవి దివ్య గర్భగుడి దర్శనం.",
+    "image": "https://img.youtube.com/vi/iPIV0VhUoUs/hqdefault.jpg",
+    "aspect": "portrait",
+    "featured": true,
+    "isVideo": true,
+    "videoId": "iPIV0VhUoUs",
+    "youtubeUrl": "https://youtube.com/shorts/iPIV0VhUoUs?si=4vd02_zxpc2fb98s"
+  },
+  {
+    "id": "video-short-2",
+    "category": "videos",
+    "title": "Goddess Sri Ambadevi Betel Leaf Vilyadele Arch Alankara",
+    "kannadaTitle": "ಶ್ರೀ ಅಂಬಾದೇವಿ ಪವಿತ್ರ ವಿಳ್ಯೇದೆಲೆ ತೋರಣ ಅಲಂಕಾರ",
+    "hindiTitle": "श्री अम्बादेवी पवित्र विळ्ळेदेले (पान) तोरण शृंगार",
+    "teluguTitle": "శ్రీ అంబాదేవి పవిత్ర తమలపాకుల తోరణ అలంకారం",
+    "tag": "YouTube Short",
+    "kannadaTag": "ವಿಡಿಯೋ ಶಾರ್ಟ್",
+    "hindiTag": "यूट्यूब शॉर्ट",
+    "teluguTag": "యూట్యూబ్ షార్ట్",
+    "description": "Special Vilyadele (betel leaves) arch alankara offering to Goddess Sri Ambadevi at Somalapura.",
+    "kannadaDescription": "ಶ್ರೀ ಅಂಬಾದೇವಿಗೆ ಅರ್ಪಿಸಲಾಗುವ ಪವಿತ್ರ ಹಸಿರು ವಿಳ್ಯೇದೆಲೆ ತೋರಣ ಮತ್ತು ಬಂಗಾರದ ಕಿರೀಟ ಅಲಂಕಾರದ ದಿವ್ಯ ವಿಡಿಯೋ.",
+    "hindiDescription": "माँ अम्बादेवी को समर्पित पावन विळ्ळेदेले तोरण एवं सुवर्ण मुकुट शृंगार।",
+    "teluguDescription": "శ్రీ అంబాదేవికి సమర్పించిన తమలపాకుల తోరణం మరియు స్వర్ణ కిరీట అలంకారం.",
+    "image": "https://img.youtube.com/vi/eeAu-u8YxK0/hqdefault.jpg",
+    "aspect": "portrait",
+    "featured": true,
+    "isVideo": true,
+    "videoId": "eeAu-u8YxK0",
+    "youtubeUrl": "https://youtube.com/shorts/eeAu-u8YxK0?si=A8pa1-1sgj8_JpER"
+  },
+  {
+    "id": "video-short-3",
+    "category": "videos",
+    "title": "Sri Ambadevi Sanctum Pooja & Maha Mangalarathi",
+    "kannadaTitle": "ಶ್ರೀ ಅಂಬಾದೇವಿ ಗರ್ಭಗುಡಿ ಪೂಜೆ ಮತ್ತು ಮಹಾಮಂಗಳಾರತಿ",
+    "hindiTitle": "श्री अम्बादेवी गर्भगृह पूजा एवं महामंगल आरती",
+    "teluguTitle": "శ్రీ అంబాదేవి గర్భగుడి పూజ & మహామంగళారతి",
+    "tag": "YouTube Short",
+    "kannadaTag": "ವಿಡಿಯೋ ಶಾರ್ಟ್",
+    "hindiTag": "यूट्यूब शॉर्ट",
+    "teluguTag": "యూట్యూబ్ షార్ట్",
+    "description": "Vedic evening pooja, lighting of deepas and Maha Mangalarathi at Sri Ambadevi Temple.",
+    "kannadaDescription": "ಶ್ರೀ ಅಂಬಾದೇವಿ ಸನ್ನಿಧಿಯಲ್ಲಿ ವೇದ ಮಂತ್ರ ಘೋಷಗಳೊಂದಿಗೆ ನೆರವೇರುವ ಪವಿತ್ರ ಸಂಧ್ಯಾ ಪೂಜೆ ಮತ್ತು ಮಹಾಮಂಗಳಾರತಿ.",
+    "hindiDescription": "श्री अम्बादेवी मंदिर में वेदमंत्रोच्चार सहित संपन्न संध्या महामंगल आरती।",
+    "teluguDescription": "శ్రీ అంబాదేవి సన్నిధిలో వేద మంత్రోచ్ఛారణలతో జరిగే సంధ్యా మహామంగళారతి.",
+    "image": "https://img.youtube.com/vi/EwX0CffYaJw/hqdefault.jpg",
+    "aspect": "portrait",
+    "featured": true,
+    "isVideo": true,
+    "videoId": "EwX0CffYaJw",
+    "youtubeUrl": "https://youtube.com/shorts/EwX0CffYaJw?si=r30KK4x0FNoJx5mr"
+  },
+  {
+    "id": "video-short-4",
+    "category": "videos",
+    "title": "Sri Ambadevi Belli Rathotsava Silver Chariot Procession",
+    "kannadaTitle": "ಶ್ರೀ ಅಂಬಾದೇವಿ ಬೆಳ್ಳಿ ರಥೋತ್ಸವ ಮತ್ತು ಪವಿತ್ರ ರಥ ಮೆರವಣಿಗೆ",
+    "hindiTitle": "श्री अम्बादेवी रजत रथोत्सव एवं शोभायात्रा",
+    "teluguTitle": "శ్రీ అంబాదేవి వెండి రథోత్సవం & రథ ఊరేగింపు",
+    "tag": "YouTube Short",
+    "kannadaTag": "ವಿಡಿಯೋ ಶಾರ್ಟ್",
+    "hindiTag": "यूट्यूब शॉर्ट",
+    "teluguTag": "యూట్యూబ్ షార్ట్",
+    "description": "Grand annual silver chariot procession celebrated with lakhs of devotees at Somalapura.",
+    "kannadaDescription": "ಲಕ್ಷಾಂತರ ಭಕ್ತಾದಿಗಳ ಸಮ್ಮುಖದಲ್ಲಿ ಸಂಭ್ರಮದಿಂದ ಜರುಗುವ ಶ್ರೀ ಅಂಬಾದೇವಿಯ ವಾರ್ಷಿಕ ಬೆಳ್ಳಿ ರಥೋತ್ಸವದ ಅದ್ಭುತ ಕ್ಷಣಗಳು.",
+    "hindiDescription": "लाखों श्रद्धालुओं की उपस्थिति में संपन्न माँ अम्बादेवी का पावन रजत रथोत्सव।",
+    "teluguDescription": "లక్షలాది భక్తుల సమక్షంలో వైభవంగా జరిగే శ్రీ అంబాదేవి వెండి రథోత్సవ దృశ్యాలు.",
+    "image": "https://img.youtube.com/vi/S-cYd03PX1M/hqdefault.jpg",
+    "aspect": "portrait",
+    "featured": true,
+    "isVideo": true,
+    "videoId": "S-cYd03PX1M",
+    "youtubeUrl": "https://youtube.com/shorts/S-cYd03PX1M?si=544uGbKsaxO1V2lQ"
+  },
+  {
+    "id": "video-short-5",
+    "category": "videos",
+    "title": "Sukshethra Siddha Parvatha Sacred Tapobhoomi View",
+    "kannadaTitle": "ಸುಕ್ಷೇತ್ರ ಸಿದ್ಧ ಪರ್ವತ ಪವಿತ್ರ ತಪೋಭೂಮಿ ದರ್ಶನ",
+    "hindiTitle": "सुक्षेत्र सिद्ध पर्वत पावन तपोभूमि दर्शन",
+    "teluguTitle": "సుక్షేత్ర సిద్ధ పర్వత తపోభూమి దర్శనం",
+    "tag": "YouTube Short",
+    "kannadaTag": "ವಿಡಿಯೋ ಶಾರ್ಟ್",
+    "hindiTag": "यूट्यूब शॉर्ट",
+    "teluguTag": "యూట్యూబ్ షార్ಟ್",
+    "description": "Scenic hill views and spiritual tranquility of Siddha Parvatha hill where Sri Chidananda Avadhoota meditated.",
+    "kannadaDescription": "ಪರಮ ಪೂಜ್ಯ ಶ್ರೀ ಚಿದಾನಂದ ಅವಧೂತರು ತಪಸ್ಸನ್ನಾಚರಿಸಿದ ಸಿದ್ಧ ಪರ್ವತ ಬೆಟ್ಟ ಮತ್ತು ನಿಸರ್ಗ ರಮಣೀಯ ಪರಿಸರ.",
+    "hindiDescription": "परम पूज्य श्री चिदानंद अवधूत जी की पावन सिद्ध पर्वत तपोभूमि का विहंगम दृश्य।",
+    "teluguDescription": "పరమ పూజ్య శ్రీ చిదానంద అవధూతలు తపస్సు ఆచరించిన సిద్ధ పర్వత దర్శనం.",
+    "image": "https://img.youtube.com/vi/slobMcePOlM/hqdefault.jpg",
+    "aspect": "portrait",
+    "featured": true,
+    "isVideo": true,
+    "videoId": "slobMcePOlM",
+    "youtubeUrl": "https://youtube.com/shorts/slobMcePOlM?si=sdjvUs1Hu7m9uNKu"
+  },
+  {
+    "id": "video-short-6",
+    "category": "videos",
+    "title": "Sri Ambadevi Temple Jatra Mahotsava Celebrations",
+    "kannadaTitle": "ಶ್ರೀ ಅಂಬಾದೇವಿ ಜಾತ್ರಾ ಮಹೋತ್ಸವ ಮತ್ತು ಭಕ್ತರ ಸಂಭ್ರಮ",
+    "hindiTitle": "श्री अम्बादेवी वार्षिक जात्रा महोत्सव एवं भक्त उल्लास",
+    "teluguTitle": "శ్రీ అంబాదేవి జాతర మహోత్సవం & భక్తుల సంబరం",
+    "tag": "YouTube Short",
+    "kannadaTag": "ವಿಡಿಯೋ ಶಾರ್ಟ್",
+    "hindiTag": "यूट्यूब शॉर्ट",
+    "teluguTag": "యూట్యూబ్ షార్ట్",
+    "description": "Devotees congregating from across Karnataka, Telangana and Maharashtra for annual Jatra festivities.",
+    "kannadaDescription": "ಕರ್ನಾಟಕ, ತೆಲಂಗಾಣ ಮತ್ತು ಮಹಾರಾಷ್ಟ್ರಗಳಿಂದ ಆಗಮಿಸಿದ ಅಪಾರ ಭಕ್ತ ಸಾಗರದೊಂದಿಗೆ ಶ್ರೀ ಅಂಬಾದೇವಿ ಜಾತ್ರಾ ಸಂಭ್ರಮ.",
+    "hindiDescription": "कर्नाटक, तेलंगाना एवं महाराष्ट्र से पधारे श्रद्धालुओं के साथ वार्षिक जात्रा महोत्सव।",
+    "teluguDescription": "కర్ణాటక, తెలంగాణ, మహారాష్ట్రల నుండి తరలివచ్చిన అశేష భక్తజనులతో జాతర ఉత్సవం.",
+    "image": "https://img.youtube.com/vi/UEGmXbJsTm8/hqdefault.jpg",
+    "aspect": "portrait",
+    "featured": true,
+    "isVideo": true,
+    "videoId": "UEGmXbJsTm8",
+    "youtubeUrl": "https://youtube.com/shorts/UEGmXbJsTm8?si=ZueEQQPFqqV5GIjJ"
+  },
+  {
+    "id": "video-short-7",
+    "category": "videos",
+    "title": "Sri Ambadevi Temple Daily Darshan & Devotee Blessings",
+    "kannadaTitle": "ಶ್ರೀ ಅಂಬಾದೇವಿ ದೇವಸ್ಥಾನದ ನಿತ್ಯ ದರ್ಶನ ಮತ್ತು ಭಕ್ತಾನುಗ್ರಹ",
+    "hindiTitle": "श्री अम्बादेवी मंदिर नित्य दर्शन एवं श्रद्धालु आशीर्वाद",
+    "teluguTitle": "శ్రీ అంబాదేవి నిత్య దర్శనం & భక్తుల అనుగ్రహం",
+    "tag": "YouTube Short",
+    "kannadaTag": "ವಿಡಿಯೋ ಶಾರ್ಟ್",
+    "hindiTag": "यूट्यूब शॉर्ट",
+    "teluguTag": "యూట్యూబ్ షార్ట్",
+    "description": "Visiting pilgrims receiving divine blessings, theertha and prasadam at Somalapura temple.",
+    "kannadaDescription": "ಶ್ರೀ ಅಂಬಾದೇವಿ ಸನ್ನಿಧಿಯಲ್ಲಿ ಭಕ್ತರು ತೀರ್ಥ ಪ್ರಸಾದ ಸ್ವೀಕರಿಸಿ ದೇವಿಯ ಆಶೀರ್ವಾದ ಪಡೆಯುವ ಪಾವನ ದೃಶ್ಯ.",
+    "hindiDescription": "श्री अम्बादेवी मंदिर में तीर्थ प्रसाद ग्रहण कर माता का आशीर्वाद प्राप्त करते श्रद्धालु।",
+    "teluguDescription": "శ్రీ అంబాదేవి సన్నిధిలో తీర్థ ప్రసాదాలు స్వీకరిస్తూ అమ్మవారి అనుగ్రహం పొందుతున్న భక్తులు.",
+    "image": "https://img.youtube.com/vi/cHLXBpp4XUM/hqdefault.jpg",
+    "aspect": "portrait",
+    "featured": true,
+    "isVideo": true,
+    "videoId": "cHLXBpp4XUM",
+    "youtubeUrl": "https://youtube.com/shorts/cHLXBpp4XUM?si=q4YyGrucBCrUm7GP"
+  },
   {
     "id": "devi-alankara-darshan",
     "category": "devi",

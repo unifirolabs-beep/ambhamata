@@ -315,6 +315,7 @@ export interface ContentTranslation {
       devi: string;
       construction: string;
       jathara: string;
+      videos?: string;
       deity?: string;
       architecture?: string;
       festivals?: string;
@@ -898,6 +899,7 @@ export const contentTranslations: Record<Locale, ContentTranslation> = {
         devi: "Devi Images",
         construction: "Construction Images",
         jathara: "Jathara Images",
+        videos: "Videos (Shorts)",
       },
       highlights: {
         eyebrow: "SACRED KSHETRA SHOWCASE",
@@ -1522,6 +1524,7 @@ export const contentTranslations: Record<Locale, ContentTranslation> = {
         devi: "ದೇವಿ ದರ್ಶನ",
         construction: "ದೇವಸ್ಥಾನ ನಿರ್ಮಾಣ",
         jathara: "ಜಾತ್ರಾ ಮಹೋತ್ಸವ",
+        videos: "ವಿಡಿಯೋಗಳು (Shorts)",
       },
       highlights: {
         eyebrow: "ಸುಕ್ಷೇತ್ರ ಸಿದ್ಧ ಪರ್ವತ ವಿಶೇಷತೆ",

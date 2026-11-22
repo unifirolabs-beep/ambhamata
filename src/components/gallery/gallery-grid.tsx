@@ -3,7 +3,7 @@
 import React, { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "motion/react";
-import { X, ChevronLeft, ChevronRight, Layers } from "lucide-react";
+import { X, ChevronLeft, ChevronRight, Layers, Play, Film, ExternalLink } from "lucide-react";
 import { GALLERY_ITEMS, type GalleryItem, type GalleryCategory } from "@/constants/gallery";
 import { useContentTranslation } from "@/messages/content-translations";
 import { cn } from "@/lib/utils";
@@ -19,6 +19,7 @@ export function GalleryGrid() {
     { id: "devi", label: t.galleryPage.categories.devi },
     { id: "construction", label: t.galleryPage.categories.construction },
     { id: "jathara", label: t.galleryPage.categories.jathara },
+    { id: "videos", label: t.galleryPage.categories.videos || (isKannada ? "ವಿಡಿಯೋಗಳು (Shorts)" : "Videos (Shorts)") },
   ];
 
   const filteredItems = activeCategory === "all"
@@ -130,7 +131,10 @@ export function GalleryGrid() {
                   exit={{ opacity: 0, scale: 0.9 }}
                   transition={{ duration: 0.3, delay: Math.min((idx % 12) * 0.02, 0.2) }}
                   onClick={() => setSelectedItemIndex(fullIndex >= 0 ? fullIndex : idx)}
-                  className="group relative aspect-[4/3] rounded-xl sm:rounded-2xl overflow-hidden bg-black/5 shadow-xs hover:shadow-lg transition-all duration-300 ease-out cursor-pointer select-none border border-[#EAEAEA]"
+                  className={cn(
+                    "group relative rounded-xl sm:rounded-2xl overflow-hidden bg-black/5 shadow-xs hover:shadow-lg transition-all duration-300 ease-out cursor-pointer select-none border border-[#EAEAEA]",
+                    activeCategory === "videos" || item.isVideo ? "aspect-[9/16] bg-black/10" : "aspect-[4/3]"
+                  )}
                 >
                   <Image
                     src={item.image}
@@ -142,6 +146,20 @@ export function GalleryGrid() {
                     sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
                     className="object-cover object-center transition-transform duration-500 ease-out group-hover:scale-105"
                   />
+                  {item.isVideo && (
+                    <div className="absolute inset-0 flex flex-col items-center justify-between p-3 bg-gradient-to-t from-black/85 via-black/15 to-transparent transition-colors group-hover:from-black/90">
+                      <div className="self-end inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-red-600 text-white text-[10px] font-bold shadow-xs">
+                        <Play className="w-2.5 h-2.5 fill-white" />
+                        <span>Shorts</span>
+                      </div>
+                      <div className="w-12 h-12 rounded-full bg-red-600/90 text-white flex items-center justify-center shadow-xl group-hover:scale-110 group-hover:bg-red-600 transition-all">
+                        <Play className="w-6 h-6 fill-white translate-x-0.5" />
+                      </div>
+                      <p className={cn("text-xs font-bold text-white text-center line-clamp-2 drop-shadow-xs", fontClass)}>
+                        {title}
+                      </p>
+                    </div>
+                  )}
                 </motion.div>
               );
             })}
@@ -245,18 +263,43 @@ export function GalleryGrid() {
               className="relative max-w-5xl w-full max-h-[92vh] flex flex-col items-center justify-center"
               onClick={(e) => e.stopPropagation()}
             >
-              {/* Photo Display */}
-              <div className="relative w-full h-[70vh] sm:h-[80vh] md:h-[84vh] rounded-2xl overflow-hidden bg-black/50 border border-white/20 shadow-2xl">
-                <Image
-                  src={selectedItem.image}
-                  alt={isKannada ? selectedItem.kannadaTitle : selectedItem.title}
-                  fill
-                  priority
-                  unoptimized
-                  sizes="(max-width: 1024px) 100vw, 1200px"
-                  className="object-contain object-center"
-                />
-              </div>
+              {/* Photo or Video Display */}
+              {selectedItem.isVideo && selectedItem.videoId ? (
+                <div className="relative w-full max-w-[360px] aspect-[9/16] max-h-[80vh] rounded-2xl overflow-hidden bg-black border border-white/20 shadow-2xl">
+                  <iframe
+                    src={`https://www.youtube.com/embed/${selectedItem.videoId}?autoplay=1&controls=1&rel=0&modestbranding=1`}
+                    title={isKannada ? selectedItem.kannadaTitle : selectedItem.title}
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowFullScreen
+                    className="w-full h-full border-0"
+                  />
+                </div>
+              ) : (
+                <div className="relative w-full h-[70vh] sm:h-[80vh] md:h-[84vh] rounded-2xl overflow-hidden bg-black/50 border border-white/20 shadow-2xl">
+                  <Image
+                    src={selectedItem.image}
+                    alt={isKannada ? selectedItem.kannadaTitle : selectedItem.title}
+                    fill
+                    priority
+                    unoptimized
+                    sizes="(max-width: 1024px) 100vw, 1200px"
+                    className="object-contain object-center"
+                  />
+                </div>
+              )}
+
+              {selectedItem.isVideo && selectedItem.youtubeUrl && (
+                <a
+                  href={selectedItem.youtubeUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-3 inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-red-600 hover:bg-red-700 text-white text-xs font-bold transition-all shadow-md active:scale-95"
+                >
+                  <Film className="w-3.5 h-3.5" />
+                  <span>{isKannada ? "ಯುಟ್ಯೂಬ್‌ನಲ್ಲಿ ಪೂರ್ಣ ಶಾರ್ಟ್ ವೀಕ್ಷಿಸಿ" : "Watch Full Short on YouTube"}</span>
+                  <ExternalLink className="w-3 h-3" />
+                </a>
+              )}
 
               {/* Counter Indicator */}
               <div className="mt-3 text-xs sm:text-sm text-white/80 font-medium">

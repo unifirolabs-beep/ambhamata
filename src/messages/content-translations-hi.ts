@@ -448,6 +448,7 @@ export const hiContentTranslation: ContentTranslation = {
       devi: "देवी दर्शन",
       construction: "मंदिर निर्माण",
       jathara: "जात्रा महोत्सव",
+      videos: "वीडियो (Shorts)",
     },
     highlights: {
       eyebrow: "सुक्षेत्र सिद्ध पर्वत विशेषता",
