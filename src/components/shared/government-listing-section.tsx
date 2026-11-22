@@ -36,7 +36,8 @@ export function GovernmentListingSection() {
             <div className="relative w-full max-w-[380px] sm:max-w-[420px] aspect-[19/12] flex items-center justify-center">
               <Image
                 src="/karnataka-govt-hrce-logo-transparent.png"
-                alt="Government of Karnataka & Hindu Religious Institutions and Charitable Endowments Department"
+                alt="Government of Karnataka & Hindu Religious Institutions and Charitable Endowments (HR&CE) Department Official Emblems"
+                title="Government of Karnataka HR&CE Department Official Accreditation"
                 fill
                 unoptimized
                 sizes="(max-width: 768px) 340px, 420px"

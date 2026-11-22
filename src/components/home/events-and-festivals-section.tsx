@@ -10,9 +10,18 @@ import { cn } from "@/lib/utils";
 
 // Authentic temple images from public folder
 const FESTIVAL_IMAGES = [
-  "/sevas/special-poojas-hq.jpg", // 1. Sri Ambadevi Belli Rathotsava
-  "/sevas/abhishekam-hq.jpg",     // 2. Sri Ambadevi Kumbhotsava
-  "/sevas/homam-hq.jpg",          // 3. Special Religious Celebrations
+  {
+    src: "/festivals/belli-rathotsava.jpg", // 1. Sri Ambadevi Belli Rathotsava
+    position: "object-center",
+  },
+  {
+    src: "/festivals/kumbhotsava.jpg", // 2. Sri Ambadevi Kumbhotsava
+    position: "object-center",
+  },
+  {
+    src: "/festivals/special-celebrations.jpg", // 3. Special Religious Celebrations
+    position: "object-[center_top]",
+  },
 ];
 
 export function EventsAndFestivalsSection() {
@@ -89,8 +98,9 @@ export function EventsAndFestivalsSection() {
             <div className="group relative w-full h-[300px] sm:h-[400px] md:h-[460px] lg:h-full min-h-[300px] sm:min-h-[380px] lg:min-h-[460px] rounded-3xl overflow-hidden shadow-xs border border-[#E8B947]/40 transition-all duration-500 hover:shadow-md hover:border-[#D49812]">
               {/* Full Temple Image */}
               <Image
-                src="/festival-hero-desktop.png"
-                alt={festivals.featuredTitle}
+                src="/festivals/jatra-mahotsava.jpg"
+                alt={`${festivals.featuredTitle} - Grand annual chariot festival at Sri Ambadevi Devasthana Somalapura`}
+                title={`${festivals.featuredTitle} - Sukshethra Siddha Parvatha`}
                 fill
                 unoptimized
                 sizes="(max-width: 1024px) 100vw, 60vw"
@@ -135,7 +145,7 @@ export function EventsAndFestivalsSection() {
             {/* 3 Stacked Festival Cards (Matching Image 2 Reference) */}
             <div className="space-y-3.5 sm:space-y-4">
               {festivals.items.map((item, idx) => {
-                const imgSrc = FESTIVAL_IMAGES[idx % FESTIVAL_IMAGES.length];
+                const imgData = FESTIVAL_IMAGES[idx % FESTIVAL_IMAGES.length];
 
                 return (
                   <div
@@ -145,12 +155,16 @@ export function EventsAndFestivalsSection() {
                     {/* Thumbnail Image */}
                     <div className="relative h-20 w-20 sm:h-24 sm:w-28 rounded-xl overflow-hidden shrink-0 border border-[#E8B947]/30 shadow-xs">
                       <Image
-                        src={imgSrc}
-                        alt={item.title}
+                        src={imgData.src}
+                        alt={`${item.title} - Sri Ambadevi Devasthana celebration`}
+                        title={`${item.title} - Somalapura, Sindhanur`}
                         fill
                         unoptimized
                         sizes="120px"
-                        className="object-cover object-center transition-transform duration-500 group-hover:scale-108"
+                        className={cn(
+                          "object-cover transition-transform duration-500 group-hover:scale-108",
+                          imgData.position
+                        )}
                       />
                     </div>
 

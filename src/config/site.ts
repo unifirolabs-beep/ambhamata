@@ -37,8 +37,8 @@ export const siteConfig = {
   altNameHindi: "श्री अम्बामाता देवस्थान",
   altNameTelugu: "శ్రీ అంబామాత దేవస్థానము",
   description:
-    "Official portal of Sri Ambadevi Devasthana (Sri Ambamata Devasthana). Sacred abode of the Divine Mother.",
-  url: "https://ambhamata.org",
+    "Official portal of Sri Ambadevi Devasthana (Sri Ambamata Devasthana). Documented 343+ year sacred history, spiritual traditions of Param Poojya Sri Chidananda Avadhoota, darshan timings, pooja booking, and Belli Rathotsava at Somalapura, Sindhanur, Raichur.",
+  url: "https://ambhamata.surge.sh",
   navItems: [
     {
       title: "Home",

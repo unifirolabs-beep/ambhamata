@@ -6,16 +6,60 @@ import { AboutSaintAndHillSection } from "@/components/about/about-saint-and-hil
 import { AboutDeviAndPuranaSection } from "@/components/about/about-devi-and-purana-section";
 import { GovernmentListingSection } from "@/components/shared/government-listing-section";
 import { AboutVisionSection } from "@/components/about/about-vision-section";
+import { JsonLd, createBreadcrumbSchema } from "@/components/seo/json-ld";
 
 export const metadata: Metadata = {
-  title: "About Us | Sukṣhetra Siddha Parvatha Shaktipeeth Ambamath",
+  title: "About History, Sacred Tapobhoomi & Heritage | Sri Ambadevi Devasthana",
   description:
-    "Explore the documented 343+ year sacred history, spiritual traditions of Param Poojya Sri Chidananda Avadhoota, Siddha Parvatha hill, divine blessings of Goddess Sri Ambadevi, and our vision for preserving this sacred heritage.",
+    "Documented 343+ year sacred history of Sri Ambamata Devasthana. Discover the spiritual tapasya of Param Poojya Sri Chidananda Avadhoota, sacred Siddha Parvatha hill, divine mother Sri Ambadevi, and Karnataka HR&CE governance in Somalapura, Sindhanur.",
+  keywords: [
+    "Sri Ambamata Temple History",
+    "Sri Ambadevi Devasthana Somalapura",
+    "Param Poojya Sri Chidananda Avadhoota",
+    "Siddha Parvatha Tapobhoomi",
+    "Sindhanur Heritage Temples",
+    "Devi Purana Karnataka",
+    "Raichur Spiritual Heritage",
+    "ಶ್ರೀ ಅಂಬಾದೇವಿ ದೇವಸ್ಥಾನ ಇತಿಹಾಸ",
+    "ಚಿದಾನಂದ ಅವಧೂತರು ಸಿದ್ಧ ಪರ್ವತ",
+  ],
+  alternates: {
+    canonical: "/about",
+  },
+  openGraph: {
+    title: "About History & Heritage | Sri Ambadevi Devasthana Somalapura",
+    description:
+      "Documented 343+ year sacred history of Sukṣhetra Siddha Parvatha Shaktipeeth Ambamath and Param Poojya Sri Chidananda Avadhoota.",
+    url: "https://ambhamata.surge.sh/about",
+    type: "website",
+    images: [
+      {
+        url: "/devi-idol.jpeg",
+        width: 1200,
+        height: 630,
+        alt: "Sacred Moola Vigraha Idol of Goddess Sri Ambadevi",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "About Temple History & Heritage | Sri Ambadevi Devasthana",
+    description:
+      "343+ year sacred history of Sri Ambadevi Temple and Param Poojya Sri Chidananda Avadhoota.",
+    images: ["/devi-idol.jpeg"],
+  },
 };
 
 export default function AboutPage() {
+  const breadcrumbSchema = createBreadcrumbSchema([
+    { name: "Home", url: "/" },
+    { name: "About Temple & History", url: "/about" },
+  ]);
+
   return (
     <main className="flex-1 flex flex-col bg-white">
+      <JsonLd data={breadcrumbSchema} />
+
       {/* 1. Dedicated Top Hero Banner with public/hero-banner.png */}
       <AboutHeroBanner />
 

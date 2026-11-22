@@ -21,6 +21,7 @@ export interface FeaturedSevaCard {
   hindiTitle?: string;
   teluguTitle?: string;
   image: string;
+  imagePosition?: string;
   description: string;
   kannadaDescription?: string;
   hindiDescription?: string;
@@ -39,7 +40,8 @@ export const FEATURED_SEVAS: FeaturedSevaCard[] = [
     kannadaTitle: "ಅಭಿಷೇಕ ಸೇವೆ",
     hindiTitle: "अभिषेक सेवा",
     teluguTitle: "అభిషేక సేవ",
-    image: "/sevas/abhishekam-hq.jpg",
+    image: "/seva/abhishekam.jpeg",
+    imagePosition: "object-[center_top]",
     description: "A sacred ritual bathing of the deity with devotion and traditional offerings.",
     kannadaDescription: "ದೇವಿಗೆ ಪಂಚಾಮೃತ ಹಾಗೂ ಪವಿತ್ರ ಜಲದಿಂದ ಭಕ್ತಿಪೂರ್ವಕವಾಗಿ ನೆರವೇರಿಸುವ ಸಾಂಪ್ರದಾಯಿಕ ಅಭಿಷೇಕ.",
     hindiDescription: "देवी को पंचामृत एवं पावन जल से भक्तिपूर्वक अर्पित पारंपरिक अभिषेक अनुष्ठान।",
@@ -56,7 +58,8 @@ export const FEATURED_SEVAS: FeaturedSevaCard[] = [
     kannadaTitle: "ಅರ್ಚನೆ ಸೇವೆ",
     hindiTitle: "अर्चना सेवा",
     teluguTitle: "అర్చన సేవ",
-    image: "/sevas/archana-hq.jpg",
+    image: "/devi.jpeg",
+    imagePosition: "object-[center_top]",
     description: "Offer prayers and sacred names to the deity, seeking divine blessings.",
     kannadaDescription: "ದೇವಿಯ ಸಹಸ್ರನಾಮ ಸ್ಮರಣೆಯೊಂದಿಗೆ ಕುಂಕುಮ ಮತ್ತು ಪುಷ್ಪಗಳಿಂದ ನೆರವೇರಿಸುವ ದಿವ್ಯ ಅರ್ಚನೆ.",
     hindiDescription: "देवी के सहस्रनाम पाठ के साथ कुंकुम एवं दिव्य पुष्पों से संपन्न होने वाली पावन अर्चना।",
@@ -73,7 +76,8 @@ export const FEATURED_SEVAS: FeaturedSevaCard[] = [
     kannadaTitle: "ಹೋಮ ಹವನ",
     hindiTitle: "हवन एवं यज्ञ",
     teluguTitle: "హోమం & యజ్ఞం",
-    image: "/sevas/homam-hq.jpg",
+    image: "/seva/homam.jpeg",
+    imagePosition: "object-center",
     description: "A sacred fire ritual performed with Vedic hymns and offerings for divine blessings.",
     kannadaDescription: "ವೈದಿಕ ಮಂತ್ರಘೋಷಗಳೊಂದಿಗೆ ಲೋಕಕಲ್ಯಾಣ ಹಾಗೂ ಇಷ್ಟಾರ್ಥ ಸಿದ್ಧಿಗಾಗಿ ನೆರವೇರಿಸುವ ಪವಿತ್ರ ಯಜ್ಞ.",
     hindiDescription: "वैदिक मंत्रोच्चार के साथ विश्वकल्याण एवं मनोकामना सिद्धि हेतु पावन यज्ञ अनुष्ठान।",
@@ -90,7 +94,8 @@ export const FEATURED_SEVAS: FeaturedSevaCard[] = [
     kannadaTitle: "ಅನ್ನದಾನ ಸೇವೆ",
     hindiTitle: "अन्नदान सेवा",
     teluguTitle: "అన్నదాన సేవ",
-    image: "/sevas/annadanam-hq.jpg",
+    image: "/seva/annadhanam.jpeg",
+    imagePosition: "object-[center_top]",
     description: "A sacred service of offering food to devotees as an expression of devotion and charity.",
     kannadaDescription: "ಕ್ಷೇತ್ರಕ್ಕೆ ಬರುವ ಸಕಲ ಭಕ್ತಾದಿಗಳಿಗೆ ನಿತ್ಯ ದಾಸೋಹ ಸಮರ್ಪಿಸುವ ಪರಮ ಪವಿತ್ರ ಕೈಂಕರ್ಯ.",
     hindiDescription: "धाम में पधारने वाले समस्त श्रद्धालुओं के लिए नित्य महाप्रसाद अन्नदान सेवा।",
@@ -107,7 +112,8 @@ export const FEATURED_SEVAS: FeaturedSevaCard[] = [
     kannadaTitle: "ವಿಶೇಷ ಪೂಜೆಗಳು",
     hindiTitle: "विशेष पूजाएँ",
     teluguTitle: "విశేష పూజలు",
-    image: "/sevas/special-poojas-hq.jpg",
+    image: "/devi-1.png",
+    imagePosition: "object-[center_top]",
     description: "Specially conducted poojas and rituals performed for the spiritual well-being of devotees.",
     kannadaDescription: "ಭಕ್ತರ ಸಂಕಲ್ಪ ಮತ್ತು ವಿಶೇಷ ಸಂದರ್ಭಗಳಲ್ಲಿ ನೆರವೇರಿಸುವ ವಿಶಿಷ್ಟ ಪೂಜಾ ಕೈಂಕರ್ಯಗಳು.",
     hindiDescription: "भक्तों के विशेष संकल्प एवं पावन अवसरों पर संपन्न होने वाले विशिष्ट अनुष्ठान।",

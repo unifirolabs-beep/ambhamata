@@ -30,26 +30,30 @@ export function FeaturedSevaCardItem({ seva, className }: FeaturedSevaCardProps)
       href={seva.href}
       className={cn(
         "group flex flex-col justify-between overflow-hidden text-center",
-        "w-full max-w-[280px] lg:max-w-none mx-auto",
+        "w-full max-w-[320px] lg:max-w-none mx-auto",
         "rounded-2xl",
         "bg-[#FFF7E2]",
         "border border-[#E5B53D]/50",
-        "shadow-[0_6px_20px_rgba(0,0,0,0.18)]",
+        "shadow-[0_8px_24px_rgba(0,0,0,0.20)]",
         "transition-all duration-300 ease-out select-none",
-        "hover:-translate-y-1.5 hover:shadow-[0_14px_30px_rgba(0,0,0,0.25)] hover:border-[#D49812]",
+        "hover:-translate-y-1.5 hover:shadow-[0_16px_36px_rgba(0,0,0,0.28)] hover:border-[#D49812]",
         "hover:bg-gradient-to-b hover:from-[#FFFCF3] hover:via-[#FFF7E2] hover:to-[#FFF0D4]",
         className
       )}
     >
-      {/* Top Image Container with Clean Aspect Ratio */}
-      <div className="relative w-full aspect-[4/3] sm:aspect-[16/11] overflow-hidden bg-[#790D27]/15">
+      {/* Top Image Container with Increased Height so Deity Head, Kalasha & Crown are Fully Visible */}
+      <div className="relative w-full aspect-[4/5] overflow-hidden bg-[#790D27]/15">
         <Image
           src={seva.image}
-          alt={title}
+          alt={`${title} - Sacred Seva ritual at Sri Ambadevi Devasthana Somalapura`}
+          title={`${title} - Sacred Seva offering to Goddess Sri Ambadevi`}
           fill
           unoptimized
-          sizes="(max-width: 640px) 280px, (max-width: 1024px) 220px, 240px"
-          className="object-cover object-center transition-transform duration-500 ease-out group-hover:scale-105"
+          sizes="(max-width: 640px) 320px, (max-width: 1024px) 280px, 300px"
+          className={cn(
+            "object-cover transition-transform duration-500 ease-out group-hover:scale-105",
+            seva.imagePosition || "object-[center_top]"
+          )}
         />
         {/* Subtle Vignette Overlay */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent pointer-events-none" />

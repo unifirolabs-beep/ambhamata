@@ -85,6 +85,24 @@ export interface ContentTranslation {
       description: string;
     }>;
   };
+  mantapInauguration: {
+    eyebrow: string;
+    heading: string;
+    subtitle: string;
+    dignitariesTitle: string;
+    dignitariesSubtitle: string;
+    dignitaries: Array<{
+      name: string;
+      role: string;
+      badge: string;
+      image: string;
+    }>;
+    leadershipTitle: string;
+    leadershipText: string;
+    badgeText1: string;
+    badgeText2: string;
+    badgeText3: string;
+  };
   aboutPage: {
     banner: {
       eyebrow: string;
@@ -294,10 +312,13 @@ export interface ContentTranslation {
     };
     categories: {
       all: string;
-      deity: string;
-      architecture: string;
-      festivals: string;
-      poojas: string;
+      devi: string;
+      construction: string;
+      jathara: string;
+      deity?: string;
+      architecture?: string;
+      festivals?: string;
+      poojas?: string;
     };
     highlights: {
       eyebrow: string;
@@ -492,6 +513,32 @@ export const contentTranslations: Record<Locale, ContentTranslation> = {
           description: "A series of auspicious days and traditional poojas conducted with special alankara and rituals at the temple.",
         },
       ],
+    },
+    mantapInauguration: {
+      eyebrow: "|| SACRED INAUGURATION CEREMONY ||",
+      heading: "New Stone Mantap Inauguration Ceremony",
+      subtitle: "Inauguration of the New Stone Mantap at Sri Ambadevi Temple and Consecration of the Idol of Sri Ambadevi",
+      dignitariesTitle: "Dignitaries of the Inauguration Ceremony",
+      dignitariesSubtitle: "Distinguished leadership and administrative guidance supporting the sacred temple development",
+      dignitaries: [
+        {
+          name: "Sri Hampanagouda Badarli",
+          role: "Member of the Legislative Assembly, Sindhanur",
+          badge: "Hon'ble MLA, Sindhanur",
+          image: "/dignateries/Hampanagouda.jpeg",
+        },
+        {
+          name: "Sri Arun Kumar",
+          role: "Tahsildar, Sindhanur Taluk",
+          badge: "Tahsildar, Taluk Administration",
+          image: "/dignateries/arun-kumar.jpeg",
+        },
+      ],
+      leadershipTitle: "Under Their Leadership",
+      leadershipText: "The construction of the new stone Mantap at Sri Ambadevi Temple was successfully completed under their leadership, guidance, and support. Their valuable contributions and dedicated efforts played an important role in bringing this sacred project to completion.",
+      badgeText1: "Granite Shila Mantapa",
+      badgeText2: "Devi Idol Consecration",
+      badgeText3: "Dedicated Temple Service",
     },
     aboutPage: {
       banner: {
@@ -786,7 +833,7 @@ export const contentTranslations: Record<Locale, ContentTranslation> = {
           title: "Sri Ambadevi Jatra Mahotsava",
           p1: "The annual Sri Ambadevi Jatra Mahotsava is one of the most significant religious celebrations of the temple. The Jatra brings together a large gathering of devotees for special Poojas, devotional offerings, religious ceremonies and the traditional Rathotsava.",
           p2: "Historical records from the 1961 Census of India document the annual fair at Somalapura, including the traditional Rathotsava and the grand gathering of approximately 20,000–30,000 devotees across Karnataka, Maharashtra, and neighboring states.",
-          image: "/festival-hero-desktop.png",
+          image: "/festivals/jatra-mahotsava.jpg",
           alt: "Sri Ambadevi Jatra Mahotsava Temple Gathering",
         },
         {
@@ -794,7 +841,7 @@ export const contentTranslations: Record<Locale, ContentTranslation> = {
           title: "Sri Ambadevi Belli Rathotsava (Silver Chariot Festival)",
           p1: "The Belli Rathotsava is a significant devotional celebration associated with Sri Ambadevi. During this occasion, the Goddess is ceremonially taken in a beautifully decorated silver chariot as part of the traditional religious procession.",
           p2: "Amidst the chanting of Vedic hymns and resonant devotional prayers, thousands of devotees gather to witness the sacred procession through the streets of Somalapura, offering flowers and coconuts to seek the divine grace of the Mother.",
-          image: "/sevas/special-poojas-hq.jpg",
+          image: "/festivals/belli-rathotsava.jpg",
           alt: "Sri Ambadevi Belli Rathotsava Silver Chariot",
         },
         {
@@ -802,7 +849,7 @@ export const contentTranslations: Record<Locale, ContentTranslation> = {
           title: "Sharannavaratri Mahotsava",
           p1: "Nine sacred nights of intensive Shakti worship, Chandi Homa, special alankaras and divine aradhana are performed with great devotion, attracting large number of devotees to seek the blessings of Sri Ambadevi.",
           p2: "Each night, the Goddess is adorned in unique traditional alankaras representing different sacred forms of the Divine Mother. Devotees participate in continuous kumkuma archana, recitation of Sri Lalitha Sahasranama, and evening devotional bhajans.",
-          image: "/sevas/sharannavaratri-devi.jpg",
+          image: "/devi.jpeg",
           alt: "Sharannavaratri Mahotsava Sri Ambadevi Alankara",
         },
         {
@@ -810,7 +857,7 @@ export const contentTranslations: Record<Locale, ContentTranslation> = {
           title: "Vijayadashami Celebrations",
           p1: "Auspicious culmination of the Navaratri celebrations, signifying the triumph of divine righteousness. Special Poojas, alankaras and darshan are performed on this sacred day.",
           p2: "On this sacred Vijayadashami, special Poojas, Alankaras and Maha Mangalarati are offered. Devotees from near and far visit the temple to seek auspicious beginnings, spiritual protection, and victorious blessings in all righteous endeavors.",
-          image: "/sevas/homam-hq.jpg",
+          image: "/seva/homam.jpeg",
           alt: "Vijayadashami Sacred Homa Fire and Rituals",
         },
         {
@@ -818,7 +865,7 @@ export const contentTranslations: Record<Locale, ContentTranslation> = {
           title: "Pournami Special Worship",
           p1: "On every Pournami (full moon), special Vedic abhishekas, kumkuma archana and prayers are performed, and devotees participate in worship seeking peace, health and family prosperity.",
           p2: "The sacred Siddha Parvatha hill glows under the celestial full moon, creating a deeply spiritually charged atmosphere where collective prayers and deep meditation bestow peace of mind and lasting spiritual harmony.",
-          image: "/sevas/pournami-moon.jpg",
+          image: "/festivals/kumbhotsava.jpg",
           alt: "Pournami Special Worship Full Moon over Temple",
         },
         {
@@ -826,7 +873,7 @@ export const contentTranslations: Record<Locale, ContentTranslation> = {
           title: "Amavasya Religious Observances",
           p1: "On Amavasya (new moon), special prayers and spiritual cleansing ceremonies are performed, seeking the removal of negative influences, doshas, and the well-being of devotees.",
           p2: "Special Shanti poojas, protective sankalpas, and traditional rituals are conducted at the Shree Bagala Chakra Shaktipeeth, invoking the Goddess's fierce protective grace to dispel all spiritual obstacles and illuminate life with inner strength.",
-          image: "/sevas/abhishekam-hq.jpg",
+          image: "/seva/abhishekam.jpeg",
           alt: "Amavasya Religious Observances Sacred Kumbha",
         },
       ],
@@ -847,11 +894,10 @@ export const contentTranslations: Record<Locale, ContentTranslation> = {
         intro: "Immerse in the divine presence of Goddess Sri Ambadevi through sacred sanctum photographs, the grandeur of the Belli Rathotsava, Vedic poojas, and the timeless serenity of the ancient hill shrine.",
       },
       categories: {
-        all: "All Photographs",
-        deity: "Sacred Sanctum & Deities",
-        architecture: "Temple & Sacred Hills",
-        festivals: "Belli Rathotsava & Utsavas",
-        poojas: "Vedic Poojas & Rituals",
+        all: "All Photos",
+        devi: "Devi Images",
+        construction: "Construction Images",
+        jathara: "Jathara Images",
       },
       highlights: {
         eyebrow: "SACRED KSHETRA SHOWCASE",
@@ -1089,6 +1135,32 @@ export const contentTranslations: Record<Locale, ContentTranslation> = {
           description: "ದೇವಾಲಯದಲ್ಲಿ ವಿಶೇಷ ಅಲಂಕಾರ ಮತ್ತು ಆರಾಧನೆಯೊಂದಿಗೆ ಜರುಗುವ ಪುಣ್ಯದಿನಗಳು ಹಾಗೂ ಸಾಂಪ್ರದಾಯಿಕ ಪೂಜೆಗಳ ಸರಣಿ.",
         },
       ],
+    },
+    mantapInauguration: {
+      eyebrow: "|| ನೂತನ ಶಿಲಾ ಮಂಟಪ ಲೋಕಾರ್ಪಣೆ ||",
+      heading: "ನೂತನ ಶಿಲಾ ಮಂಟಪ ಲೋಕಾರ್ಪಣಾ ಮಹೋತ್ಸವ",
+      subtitle: "ಶ್ರೀ ಅಂಬಾದೇವಿ ದೇವಾಲಯದಲ್ಲಿ ನೂತನ ಶಿಲಾ ಮಂಟಪ ಲೋಕಾರ್ಪಣೆ ಹಾಗೂ ಶ್ರೀ ಅಂಬಾದೇವಿ ಮೂರ್ತಿ ಪ್ರಾಣ ಪ್ರತಿಷ್ಠಾಪನೆ",
+      dignitariesTitle: "ಲೋಕಾರ್ಪಣಾ ಮಹೋತ್ಸವದ ಸನ್ಮಾನ್ಯ ಗಣ್ಯರು",
+      dignitariesSubtitle: "ದೇವಾಲಯದ ಪವಿತ್ರ ಶಿಲಾ ಮಂಟಪ ನಿರ್ಮಾಣ ಹಾಗೂ ಸಮಗ್ರ ಅಭಿವೃದ್ಧಿಗೆ ಮಾರ್ಗದರ್ಶನ ನೀಡಿದ ಸನ್ಮಾನ್ಯ ನಾಯಕರು",
+      dignitaries: [
+        {
+          name: "ಶ್ರೀ ಹಂಪನಗೌಡ ಬಾದರ್ಲಿ",
+          role: "ಮಾನ್ಯ ಶಾಸಕರು, ಸಿಂಧನೂರು ವಿಧಾನಸಭಾ ಕ್ಷೇತ್ರ",
+          badge: "ಶಾಸಕರು, ಸಿಂಧನೂರು",
+          image: "/dignateries/Hampanagouda.jpeg",
+        },
+        {
+          name: "ಶ್ರೀ ಅರುಣ್ ಕುಮಾರ್",
+          role: "ತಹಶೀಲ್ದಾರ್, ಸಿಂಧನೂರು ತಾಲೂಕು",
+          badge: "ತಹಶೀಲ್ದಾರ್, ತಾಲೂಕು ಆಡಳಿತ",
+          image: "/dignateries/arun-kumar.jpeg",
+        },
+      ],
+      leadershipTitle: "ಅವರ ನಾಯಕತ್ವ ಹಾಗೂ ಮಾರ್ಗದರ್ಶನದಲ್ಲಿ",
+      leadershipText: "ಶ್ರೀ ಅಂಬಾದೇವಿ ದೇವಾಲಯದಲ್ಲಿ ನೂತನ ಶಿಲಾ ಮಂಟಪದ ನಿರ್ಮಾಣ ಕಾರ್ಯವು ಇವರ ಸಾರಥ್ಯ, ಮಾರ್ಗದರ್ಶನ ಹಾಗೂ ನಿರಂತರ ಸಹಕಾರದಿಂದ ಯಶಸ್ವಿಯಾಗಿ ಸಂಪನ್ನಗೊಂಡಿತು. ಈ ಪವಿತ್ರ ಧಾರ್ಮಿಕ ಯೋಜನೆಯನ್ನು ಪೂರ್ಣಗೊಳಿಸುವಲ್ಲಿ ಇವರ ಅಮೂಲ್ಯವಾದ ಕೊಡುಗೆ ಹಾಗೂ ಶ್ರದ್ಧಾಪೂರ್ವಕ ಸೇವೆ ಅತ್ಯಂತ ಮಹತ್ವದ ಪಾತ್ರ ವಹಿಸಿದೆ.",
+      badgeText1: "ಭವ್ಯ ನೂತನ ಶಿಲಾ ಮಂಟಪ",
+      badgeText2: "ದಿವ್ಯ ಮೂರ್ತಿ ಪ್ರಾಣ ಪ್ರತಿಷ್ಠಾಪನೆ",
+      badgeText3: "ಪಾವನ ಧಾರ್ಮಿಕ ಸೇವೆ",
     },
     aboutPage: {
       banner: {
@@ -1385,7 +1457,7 @@ export const contentTranslations: Record<Locale, ContentTranslation> = {
           title: "ಶ್ರೀ ಅಂಬಾದೇವಿ ಜಾತ್ರಾ ಮಹೋತ್ಸವ",
           p1: "ವಾರ್ಷಿಕ ಶ್ರೀ ಅಂಬಾದೇವಿ ಜಾತ್ರಾ ಮಹೋತ್ಸವವು ದೇವಾಲಯದ ಅತ್ಯಂತ ಪ್ರಮುಖ ಧಾರ್ಮಿಕ ಆಚರಣೆಗಳಲ್ಲಿ ಒಂದಾಗಿದೆ. ಈ ಜಾತ್ರೆಯು ವಿಶೇಷ ಪೂಜೆಗಳು, ಹರಕೆ ಸಮರ್ಪಣೆ, ಧಾರ್ಮಿಕ ಸಮಾವೇಶಗಳು ಹಾಗೂ ಸಾಂಪ್ರದಾಯಿಕ ರಥೋತ್ಸವಕ್ಕಾಗಿ ಅಪಾರ ಭಕ್ತ ಸಮೂಹವನ್ನು ಒಗ್ಗೂಡಿಸುತ್ತದೆ.",
           p2: "1961ರ ಭಾರತ ಜನಗಣತಿಯ ಐತಿಹಾಸಿಕ ದಾಖಲೆಗಳು ಸೋಮಲಾಪುರದ ವಾರ್ಷಿಕ ಜಾತ್ರೆಯನ್ನು ದಾಖಲಿಸಿದ್ದು, ಸಾಂಪ್ರದಾಯಿಕ ರಥೋತ್ಸವದಲ್ಲಿ ಕರ್ನಾಟಕ, ಮಹಾರಾಷ್ಟ್ರ ಮತ್ತು ನೆರೆಯ ರಾಜ್ಯಗಳಿಂದ 20,000 ದಿಂದ 30,000 ಕ್ಕೂ ಹೆಚ್ಚು ಭಕ್ತರು ಭಾಗವಹಿಸುವುದನ್ನು ಉಲ್ಲೇಖಿಸಿವೆ.",
-          image: "/festival-hero-desktop.png",
+          image: "/festivals/jatra-mahotsava.jpg",
           alt: "ಶ್ರೀ ಅಂಬಾದೇವಿ ಜಾತ್ರಾ ಮಹೋತ್ಸವ",
         },
         {
@@ -1393,7 +1465,7 @@ export const contentTranslations: Record<Locale, ContentTranslation> = {
           title: "ಶ್ರೀ ಅಂಬಾದೇವಿ ಬೆಳ್ಳಿ ರಥೋತ್ಸವ (ಬೆಳ್ಳಿ ರಥೋತ್ಸವ)",
           p1: "ಬೆಳ್ಳಿ ರಥೋತ್ಸವವು ಶ್ರೀ ಅಂಬಾದೇವಿಯ ಅತ್ಯಂತ ಮಹತ್ವದ ಭಕ್ತಿ ಆಚರಣೆಯಾಗಿದೆ. ಈ ಪುಣ್ಯ ಸಂದರ್ಭದಲ್ಲಿ, ದೇವಿಯನ್ನು ಸುಂದರವಾಗಿ ಅಲಂಕೃತಗೊಂಡ ಬೆಳ್ಳಿ ರಥದಲ್ಲಿ ಸಾಂಪ್ರದಾಯಿಕ ಧಾರ್ಮಿಕ ಮೆರವಣಿಗೆಯ ಮೂಲಕ ವಿಜೃಂಭಣೆಯಿಂದ ಕೊಂಡೊಯ್ಯಲಾಗುತ್ತದೆ.",
           p2: "ವೇದಘೋಷಗಳ ನಡುವೆ ಹಾಗೂ ಮಂತ್ರೋಚ್ಛಾರಣೆಗಳೊಂದಿಗೆ, ಸೋಮಲಾಪುರದ ಬೀದಿಗಳಲ್ಲಿ ಸಾಗುವ ಪವಿತ್ರ ರಥೋತ್ಸವವನ್ನು ಕಣ್ತುಂಬಿಕೊಳ್ಳಲು ಮತ್ತು ಜಗನ್ಮಾತೆಯ ಕೃಪೆಗೆ ಪಾತ್ರರಾಗಲು ಸಾವಿರಾರು ಭಕ್ತರು ಸೇರುತ್ತಾರೆ.",
-          image: "/sevas/special-poojas-hq.jpg",
+          image: "/festivals/belli-rathotsava.jpg",
           alt: "ಶ್ರೀ ಅಂಬಾದೇವಿ ಬೆಳ್ಳಿ ರಥೋತ್ಸವ",
         },
         {
@@ -1401,7 +1473,7 @@ export const contentTranslations: Record<Locale, ContentTranslation> = {
           title: "ಶರನ್ನವರಾತ್ರಿ ಮಹೋತ್ಸವ",
           p1: "ಒಂಬತ್ತು ದಿನಗಳ ಕಾಲ ಚಂಡಿಕಾ ಹೋಮ, ವಿಶೇಷ ಅಲಂಕಾರ ಹಾಗೂ ದೇವಿಯ ಆರಾಧನೆ ಅಪಾರ ಭಕ್ತಿಯಿಂದ ಜರುಗುತ್ತದೆ. ಶ್ರೀ ಅಂಬಾದೇವಿಯ ದಿವ್ಯ ಕೃಪಾಶೀರ್ವಾದ ಪಡೆಯಲು ನೂರಾರು ಭಕ್ತಾದಿಗಳು ಆಗಮಿಸುತ್ತಾರೆ.",
           p2: "ಪ್ರತಿ ರಾತ್ರಿಯೂ ದೇವಿಗೆ ವಿಶೇಷ ಸಾಂಪ್ರದಾಯಿಕ ಅಲಂಕಾರಗಳನ್ನು ಮಾಡಲಾಗುತ್ತದೆ. ಭಕ್ತರು ನಿರಂತರ ಕುಂಕುಮಾರ್ಚನೆ, ಶ್ರೀ ಲಲಿತಾ ಸಹಸ್ರನಾಮ ಪಠಣ ಹಾಗೂ ಸಂಜೆ ಧಾರ್ಮಿಕ ಭಜನೆಗಳಲ್ಲಿ ಶ್ರದ್ಧೆಯಿಂದ ಭಾಗವಹಿಸುತ್ತಾರೆ.",
-          image: "/sevas/sharannavaratri-devi.jpg",
+          image: "/devi.jpeg",
           alt: "ಶರನ್ನವರಾತ್ರಿ ಮಹೋತ್ಸವ ಶ್ರೀ ಅಂಬಾದೇವಿ ಅಲಂಕಾರ",
         },
         {
@@ -1409,7 +1481,7 @@ export const contentTranslations: Record<Locale, ContentTranslation> = {
           title: "ವಿಜಯದಶಮಿ ಉತ್ಸವ",
           p1: "ನವರಾತ್ರಿ ಆಚರಣೆಗಳ ಮಂಗಳಕರ ಮುಕ್ತಾಯ ಹಾಗೂ ಧರ್ಮದ ವಿಜಯವನ್ನು ಸಾರುವ ಪುಣ್ಯದಿನ. ಈ ಪವಿತ್ರ ದಿನದಂದು ದೇವಿಗೆ ವಿಶೇಷ ಪೂಜೆಗಳು, ಅಲಂಕಾರ ಹಾಗೂ ಮಹಾ ಮಂಗಳಾರತಿ ನೆರವೇರುತ್ತವೆ.",
           p2: "ವಿಜಯದಶಮಿಯಂದು ಸಕಲ ಕಾರ್ಯಗಳಲ್ಲಿ ವಿಜಯ, ರಕ್ಷಣೆ ಮತ್ತು ಶುಭಾರಂಭವನ್ನು ಕೋರಿ ದೂರದೂರುಗಳಿಂದ ಭಕ್ತರು ಆಗಮಿಸಿ ದರ್ಶನ ಪಡೆದು ಪುನೀತರಾಗುತ್ತಾರೆ.",
-          image: "/sevas/homam-hq.jpg",
+          image: "/seva/homam.jpeg",
           alt: "ವಿಜಯದಶಮಿ ವಿಶೇಷ ಪೂಜೆ ಮತ್ತು ಹೋಮ",
         },
         {
@@ -1417,7 +1489,7 @@ export const contentTranslations: Record<Locale, ContentTranslation> = {
           title: "ಹುಣ್ಣಿಮೆ ವಿಶೇಷ ಪೂಜೆ",
           p1: "ಪ್ರತಿ ಹುಣ್ಣಿಮೆಯಂದು ದೇವಿಗೆ ವಿಶೇಷ ಪಂಚಾಮೃತ ಅಭಿಷೇಕ, ಕುಂಕುಮಾರ್ಚನೆ ಹಾಗೂ ಸಾಮೂಹಿಕ ಪ್ರಾರ್ಥನೆಗಳು ನೆರವೇರುತ್ತವೆ. ಭಕ್ತರು ಶಾಂತಿ, ಆರೋಗ್ಯ ಮತ್ತು ಕುಟುಂಬದ ಸಮೃದ್ಧಿಗಾಗಿ ಈ ಪೂಜೆಯಲ್ಲಿ ಪಾಲ್ಗೊಳ್ಳುತ್ತಾರೆ.",
           p2: "ಚಂದ್ರನ ಬೆಳಕಿನಲ್ಲಿ ಕಂಗೊಳಿಸುವ ಸಿದ್ಧ ಪರ್ವತ ಗಿರಿಯು ದಿವ್ಯ ಆಧ್ಯಾತ್ಮಿಕ ತರಂಗಗಳಿಂದ ಕೂಡಿರುತ್ತದೆ. ಈ ಸಮಯದಲ್ಲಿ ನಡೆಸುವ ಧ್ಯಾನ ಮತ್ತು ಪ್ರಾರ್ಥನೆಯು ಮಾನಸಿಕ ನೆಮ್ಮದಿಯನ್ನು ಕರುಣಿಸುತ್ತದೆ.",
-          image: "/sevas/pournami-moon.jpg",
+          image: "/festivals/kumbhotsava.jpg",
           alt: "ಹುಣ್ಣಿಮೆ ವಿಶೇಷ ಪೂಜೆ",
         },
         {
@@ -1425,7 +1497,7 @@ export const contentTranslations: Record<Locale, ContentTranslation> = {
           title: "ಅಮಾವಾಸ್ಯೆ ಧಾರ್ಮಿಕ ಆಚರಣೆ",
           p1: "ಪ್ರತಿ ಅಮಾವಾಸ್ಯೆಯಂದು ವಿಶೇಷ ಪ್ರಾರ್ಥನೆಗಳು ಹಾಗೂ ಆಧ್ಯಾತ್ಮಿಕ ಶುದ್ಧೀಕರಣ ಆಚರಣೆಗಳು ಜರುಗುತ್ತವೆ. ಭಕ್ತರ ಕಷ್ಟಗಳು ಮತ್ತು ನಕಾರಾತ್ಮಕ ಶಕ್ತಿಗಳ ನಿವಾರಣೆಗಾಗಿ ಶಾಂತಿ ಪೂಜೆಗಳನ್ನು ನಡೆಸಲಾಗುತ್ತದೆ.",
           p2: "ಶ್ರೀ ಬಗಳಾ ಚಕ್ರ ಶಕ್ತಿಪೀಠದಲ್ಲಿ ವಿಶೇಷ ರಕ್ಷಣಾ ಸಂಕಲ್ಪಗಳು ಮತ್ತು ಸಾಂಪ್ರದಾಯಿಕ ವಿಧಿಗಳನ್ನು ನೆರವೇರಿಸಿ, ಭಕ್ತರ ಜೀವನದಲ್ಲಿ ಧೈರ್ಯ ಮತ್ತು ಆತ್ಮವಿಶ್ವಾಸವನ್ನು ತುಂಬಲಾಗುತ್ತದೆ.",
-          image: "/sevas/abhishekam-hq.jpg",
+          image: "/seva/abhishekam.jpeg",
           alt: "ಅಮಾವಾಸ್ಯೆ ಧಾರ್ಮಿಕ ಆಚರಣೆ ಪವಿತ್ರ ಕುಂಭ",
         },
       ],
@@ -1446,11 +1518,10 @@ export const contentTranslations: Record<Locale, ContentTranslation> = {
         intro: "ಜಗನ್ಮಾತೆ ಶ್ರೀ ಅಂಬಾದೇವಿಯ ಗರ್ಭಗುಡಿಯ ಪವಿತ್ರ ದರ್ಶನ, ಐತಿಹಾಸಿಕ ಬೆಳ್ಳಿ ರಥೋತ್ಸವದ ಭಕ್ತಿ ಸಾಗರ, ವೈದಿಕ ಪೂಜಾ ಕೈಂಕರ್ಯಗಳು ಹಾಗೂ ಪವಿತ್ರ ಸಿದ್ಧ ಪರ್ವತದ ನೈಸರ್ಗಿಕ ಪ್ರಶಾಂತತೆಯನ್ನು ಈ ಛಾಯಾಚಿತ್ರಗಳ ಮೂಲಕ ಕಣ್ತುಂಬಿಕೊಳ್ಳಿ.",
       },
       categories: {
-        all: "ಎಲ್ಲಾ ಭಾವಚಿತ್ರಗಳು",
-        deity: "ಪವಿತ್ರ ಸನ್ನಿಧಿ & ದೇವಿಯ ದರ್ಶನ",
-        architecture: "ದೇವಾಲಯ & ಸಿದ್ಧ ಪರ್ವತ",
-        festivals: "ಬೆಳ್ಳಿ ರಥೋತ್ಸವ & ಜಾತ್ರೆ",
-        poojas: "ವೈದಿಕ ಪೂಜೆ & ಧಾರ್ಮಿಕ ವಿಧಿಗಳು",
+        all: "ಎಲ್ಲಾ ಚಿತ್ರಗಳು",
+        devi: "ದೇವಿ ದರ್ಶನ",
+        construction: "ದೇವಸ್ಥಾನ ನಿರ್ಮಾಣ",
+        jathara: "ಜಾತ್ರಾ ಮಹೋತ್ಸವ",
       },
       highlights: {
         eyebrow: "ಸುಕ್ಷೇತ್ರ ಸಿದ್ಧ ಪರ್ವತ ವಿಶೇಷತೆ",

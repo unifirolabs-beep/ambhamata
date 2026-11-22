@@ -14,9 +14,19 @@ const DEVI_PHOTOS = [
     title: "Goddess Sri Ambadevi Darshan",
   },
   {
-    src: "/devi-2.png",
-    alt: "Sacred Sanctum Murti of Goddess Sri Ambamata at Sukṣhetra Siddha Parvatha",
-    title: "Sanctum Sanctorum Sri Ambamata",
+    src: "/devi.jpg",
+    alt: "Goddess Sri Ambadevi in Magnificent Floral Alankara at Sukṣhetra Siddha Parvatha",
+    title: "Goddess Sri Ambamata Divya Alankara",
+  },
+  {
+    src: "/gallery/ambadevi.jpeg",
+    alt: "Goddess Sri Ambadevi in Auspicious Sacred Alankara and Golden Mukuta",
+    title: "Sri Ambadevi Sacred Alankara",
+  },
+  {
+    src: "/gallery/Matha.jpeg",
+    alt: "Sri Amba Matha Sanctum Darshan in Divine Saree and Prabhavali",
+    title: "Sri Amba Matha Sanctum Darshan",
   },
 ];
 
@@ -28,11 +38,11 @@ export function AboutAmbamata() {
   const touchEndX = useRef<number | null>(null);
 
   const nextSlide = useCallback(() => {
-    setCurrentIndex((prev) => (prev === 0 ? 1 : 0));
+    setCurrentIndex((prev) => (prev + 1) % DEVI_PHOTOS.length);
   }, []);
 
   const prevSlide = useCallback(() => {
-    setCurrentIndex((prev) => (prev === 0 ? 1 : 0));
+    setCurrentIndex((prev) => (prev - 1 + DEVI_PHOTOS.length) % DEVI_PHOTOS.length);
   }, []);
 
   // 4-second automatic rotation, pauses on hover
@@ -99,6 +109,7 @@ export function AboutAmbamata() {
                     <Image
                       src={photo.src}
                       alt={photo.alt}
+                      title={photo.title}
                       fill
                       unoptimized
                       priority={idx === 0}

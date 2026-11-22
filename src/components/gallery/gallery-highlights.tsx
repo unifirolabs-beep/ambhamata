@@ -19,7 +19,7 @@ export function GalleryHighlights() {
         ? "ವಿಳ್ಯೇದೆಲೆ ತೋರಣ, ಸುವರ್ಣ ಕಿರೀಟ ಮತ್ತು ದಿವ್ಯ ಪುಷ್ಪಾಲಂಕಾರಗಳಿಂದ ಕಂಗೊಳಿಸುವ ಜಗನ್ಮಾತೆಯ ಮೂಲ ರೂಪದ ಪಾವನ ದರ್ಶನ."
         : "The sacred sanctum where Goddess Sri Ambadevi manifests divine protective grace, adorned with betel leaves and holy silks.",
       tag: isKannada ? "ಮೂಲ ಗರ್ಭಗುಡಿ" : "Sanctum Sanctorum",
-      image: "/devi-1.png",
+      image: "/gallery/devi.jpeg",
       href: "/about#devi",
     },
     {
@@ -28,7 +28,7 @@ export function GalleryHighlights() {
         ? "ಲಕ್ಷಾಂತರ ಭಕ್ತಾದಿಗಳು ಪಾಲ್ಗೊಳ್ಳುವ ಸುಕ್ಷೇತ್ರದ ಅತ್ಯಂತ ವಿಜೃಂಭಣೆಯ ಧಾರ್ಮಿಕ ಉತ್ಸವ ಮತ್ತು ಪವಿತ್ರ ರಥ ಮೆರವಣಿಗೆ."
         : "The grand annual silver chariot festival drawing hundreds of thousands of devout pilgrims in celebratory devotion.",
       tag: isKannada ? "ವಾರ್ಷಿಕ ಜಾತ್ರೆ" : "Annual Jatra",
-      image: "/gallery/temple-belli-rathotsava.jpg",
+      image: "/gallery/jathraimages/WhatsApp Image 2026-11-07 at 10.04.07 PM (1).jpeg",
       href: "/festivals",
     },
     {
@@ -37,7 +37,7 @@ export function GalleryHighlights() {
         ? "ಪರಮ ಪೂಜ್ಯ ಶ್ರೀ ಚಿದಾನಂದ ಅವಧೂತರು ಕಠಿಣ ತಪಸ್ಸನ್ನಾಚರಿಸಿ ಅಂಬಾದೇವಿಯ ಸಾಕ್ಷಾತ್ಕಾರ ಪಡೆದ ಪವಿತ್ರ ಶಿಲಾ ಗಿರಿಶ್ರೇಣಿ."
         : "The serene hill landscape sanctified by centuries of saintly penance, cave meditation, and divine spiritual energy.",
       tag: isKannada ? "ಆಧ್ಯಾತ್ಮಿಕ ನೆಲೆ" : "Sacred Terrain",
-      image: "/darshana-hero-desktop.png",
+      image: "/gallery/new temple.jpg",
       href: "/about#siddha-parvatha",
     },
   ];

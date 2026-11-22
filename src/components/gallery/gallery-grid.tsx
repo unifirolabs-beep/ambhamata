@@ -3,7 +3,7 @@
 import React, { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "motion/react";
-import { X, ChevronLeft, ChevronRight, Maximize2, Sparkles } from "lucide-react";
+import { X, ChevronLeft, ChevronRight, Layers } from "lucide-react";
 import { GALLERY_ITEMS, type GalleryItem, type GalleryCategory } from "@/constants/gallery";
 import { useContentTranslation } from "@/messages/content-translations";
 import { cn } from "@/lib/utils";
@@ -12,20 +12,29 @@ export function GalleryGrid() {
   const { t, locale, fontClass, isKannada } = useContentTranslation();
   const [activeCategory, setActiveCategory] = useState<GalleryCategory>("all");
   const [selectedItemIndex, setSelectedItemIndex] = useState<number | null>(null);
+  const [visibleCount, setVisibleCount] = useState(24);
 
   const categories = [
     { id: "all", label: t.galleryPage.categories.all },
-    { id: "deity", label: t.galleryPage.categories.deity },
-    { id: "architecture", label: t.galleryPage.categories.architecture },
-    { id: "festivals", label: t.galleryPage.categories.festivals },
-    { id: "poojas", label: t.galleryPage.categories.poojas },
+    { id: "devi", label: t.galleryPage.categories.devi },
+    { id: "construction", label: t.galleryPage.categories.construction },
+    { id: "jathara", label: t.galleryPage.categories.jathara },
   ];
 
   const filteredItems = activeCategory === "all"
     ? GALLERY_ITEMS
     : GALLERY_ITEMS.filter((item) => item.category === activeCategory);
 
-  const selectedItem: GalleryItem | null = selectedItemIndex !== null ? filteredItems[selectedItemIndex] || null : null;
+  // Reset pagination when active category changes
+  useEffect(() => {
+    setVisibleCount(24);
+    setSelectedItemIndex(null);
+  }, [activeCategory]);
+
+  const displayedItems = filteredItems.slice(0, visibleCount);
+
+  const selectedItem: GalleryItem | null =
+    selectedItemIndex !== null ? filteredItems[selectedItemIndex] || null : null;
 
   const handleNext = useCallback(() => {
     if (selectedItemIndex === null) return;
@@ -56,13 +65,13 @@ export function GalleryGrid() {
   }, [selectedItemIndex, handleClose, handleNext, handlePrev]);
 
   return (
-    <section className="relative w-full py-16 sm:py-20 md:py-24 bg-[#FFFDF8]" aria-label="Temple Photo Gallery">
-      <div className="max-w-[1360px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
+    <section className="relative w-full py-12 sm:py-16 md:py-20 bg-[#FFFDF8]" aria-label="Temple Photo Gallery">
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8 lg:px-10">
         
         {/* ========================================================
             CATEGORY FILTER TABS (RECTANGULAR CONSISTENT BUTTONS)
            ======================================================== */}
-        <div className="flex flex-wrap items-center justify-center gap-2.5 sm:gap-3 mb-12 sm:mb-16">
+        <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-10 sm:mb-12">
           {categories.map((cat) => {
             const isActive = activeCategory === cat.id;
             const count = cat.id === "all"
@@ -75,10 +84,9 @@ export function GalleryGrid() {
                 type="button"
                 onClick={() => {
                   setActiveCategory(cat.id as GalleryCategory);
-                  setSelectedItemIndex(null);
                 }}
                 className={cn(
-                  "inline-flex items-center gap-2 px-4 sm:px-5 py-2.5 rounded-lg text-xs sm:text-sm font-bold tracking-wide transition-all duration-300 select-none active:scale-95",
+                  "inline-flex items-center gap-2 px-4 sm:px-5 py-2 sm:py-2.5 rounded-lg text-xs sm:text-sm font-bold tracking-wide transition-all duration-300 select-none active:scale-95 cursor-pointer",
                   fontClass,
                   isActive
                     ? "bg-[#8B1538] text-white shadow-md border border-[#620A20] scale-105"
@@ -100,106 +108,81 @@ export function GalleryGrid() {
         </div>
 
         {/* ========================================================
-            PHOTO GALLERY GRID (MASONRY-LIKE RESPONSIVE LAYOUT)
+            PHOTO GALLERY GRID (CLEAN PURE PHOTO GRID, NO CARDS/ICONS)
            ======================================================== */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7 md:gap-8">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-5">
           <AnimatePresence mode="popLayout">
-            {filteredItems.map((item, idx) => {
+            {displayedItems.map((item, idx) => {
               const title =
                 locale === "kn" ? item.kannadaTitle :
                 locale === "hi" && item.hindiTitle ? item.hindiTitle :
                 locale === "te" && item.teluguTitle ? item.teluguTitle : item.title;
-              const tag =
-                locale === "kn" ? item.kannadaTag :
-                locale === "hi" && item.hindiTag ? item.hindiTag :
-                locale === "te" && item.teluguTag ? item.teluguTag : item.tag;
-              const description =
-                locale === "kn" ? item.kannadaDescription :
-                locale === "hi" && item.hindiDescription ? item.hindiDescription :
-                locale === "te" && item.teluguDescription ? item.teluguDescription : item.description;
+
+              // Find full index in filtered items for seamless lightbox navigation
+              const fullIndex = filteredItems.findIndex((i) => i.id === item.id);
 
               return (
                 <motion.div
                   key={item.id}
                   layout
-                  initial={{ opacity: 0, scale: 0.95, y: 20 }}
+                  initial={{ opacity: 0, scale: 0.95, y: 12 }}
                   animate={{ opacity: 1, scale: 1, y: 0 }}
                   exit={{ opacity: 0, scale: 0.9 }}
-                  transition={{ duration: 0.45, delay: idx * 0.04 }}
-                  onClick={() => setSelectedItemIndex(idx)}
-                  className={cn(
-                    "group relative flex flex-col justify-between overflow-hidden cursor-pointer",
-                    "rounded-2xl bg-[#FFF7E2] border border-[#E8B947]/35 shadow-xs",
-                    "transition-all duration-300 ease-out select-none",
-                    "hover:border-[#D49812] hover:shadow-md hover:-translate-y-1.5 hover:bg-[#FFFCF3]"
-                  )}
+                  transition={{ duration: 0.3, delay: Math.min((idx % 12) * 0.02, 0.2) }}
+                  onClick={() => setSelectedItemIndex(fullIndex >= 0 ? fullIndex : idx)}
+                  className="group relative aspect-[4/3] rounded-xl sm:rounded-2xl overflow-hidden bg-black/5 shadow-xs hover:shadow-lg transition-all duration-300 ease-out cursor-pointer select-none border border-[#EAEAEA]"
                 >
-                  {/* Photo Container */}
-                  <div className="relative w-full aspect-[4/3] overflow-hidden bg-black/10">
-                    <Image
-                      src={item.image}
-                      alt={title}
-                      fill
-                      unoptimized
-                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                      className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
-                    />
-
-                    {/* Gradient Overlay for Top Badges */}
-                    <div className="absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-black/50 to-transparent pointer-events-none" />
-
-                    {/* Top Tag & Expand Indicator */}
-                    <div className="absolute top-3 left-3 right-3 flex items-center justify-between gap-2 pointer-events-none">
-                      <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-[#8B1538]/90 text-white text-[11px] font-bold tracking-wide shadow-xs backdrop-blur-xs">
-                        <Sparkles className="h-3 w-3 text-[#FFE6A0]" />
-                        <span className={fontClass}>{tag}</span>
-                      </span>
-
-                      <div className="h-8 w-8 rounded-lg bg-black/50 backdrop-blur-md text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 shadow-md">
-                        <Maximize2 className="h-4 w-4 text-[#FFE6A0]" />
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Card Details */}
-                  <div className="p-5 flex-1 flex flex-col justify-between">
-                    <div>
-                      <h3
-                        className={cn(
-                          "text-[#74132A] text-base sm:text-lg font-bold leading-snug mb-2 group-hover:text-[#8B1538] transition-colors",
-                          fontClass
-                        )}
-                      >
-                        {title}
-                      </h3>
-                      <p
-                        className={cn(
-                          "text-xs sm:text-[13px] text-[#4A4A4A] leading-relaxed line-clamp-3",
-                          fontClass
-                        )}
-                      >
-                        {description}
-                      </p>
-                    </div>
-
-                    <div className={cn("mt-4 pt-3 border-t border-[#E8B947]/25 flex items-center justify-between text-xs text-[#8B1538] font-bold", fontClass)}>
-                      <span>
-                        {locale === "kn"
-                          ? "ದೊಡ್ಡದಾಗಿ ವೀಕ್ಷಿಸಿ"
-                          : locale === "hi"
-                          ? "बड़ा देखने के लिए क्लिक करें"
-                          : locale === "te"
-                          ? "పూర్తి చిత్రం చూడటానికి క్లిక్ చేయండి"
-                          : "Click to view full photo"}
-                      </span>
-                      <span className="group-hover:translate-x-1 transition-transform">→</span>
-                    </div>
-                  </div>
+                  <Image
+                    src={item.image}
+                    alt={`${title} - Sri Ambadevi Devasthana Somalapura Gallery`}
+                    title={`${title} - Sri Ambadevi Temple`}
+                    fill
+                    unoptimized
+                    loading="lazy"
+                    sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                    className="object-cover object-center transition-transform duration-500 ease-out group-hover:scale-105"
+                  />
                 </motion.div>
               );
             })}
           </AnimatePresence>
         </div>
+
+        {/* ========================================================
+            LOAD MORE PHOTOS BUTTON
+           ======================================================== */}
+        {filteredItems.length > visibleCount && (
+          <div className="mt-10 sm:mt-14 flex flex-col items-center justify-center gap-2.5">
+            <button
+              type="button"
+              onClick={() => setVisibleCount((prev) => prev + 24)}
+              className={cn(
+                "inline-flex items-center gap-2.5 px-7 py-3 rounded-xl text-sm font-bold tracking-wide select-none transition-all duration-300 active:scale-95 shadow-sm cursor-pointer",
+                "bg-[#8B1538] text-white hover:bg-[#620A20] hover:shadow-md",
+                fontClass
+              )}
+            >
+              <Layers className="h-4 w-4" />
+              <span>
+                {locale === "kn"
+                  ? "ಹೆಚ್ಚಿನ ಚಿತ್ರಗಳನ್ನು ವೀಕ್ಷಿಸಿ"
+                  : locale === "hi"
+                  ? "और छायाचित्र देखें"
+                  : locale === "te"
+                  ? "మరిన్ని చిత్రాలు చూడండి"
+                  : "Load More Photos"}
+              </span>
+              <span className="px-2 py-0.5 rounded-md bg-white/20 text-xs">
+                {displayedItems.length} / {filteredItems.length}
+              </span>
+            </button>
+            <p className="text-xs text-[#6B6B6B]">
+              {locale === "kn"
+                ? `ಒಟ್ಟು ${filteredItems.length} ಚಿತ್ರಗಳಲ್ಲಿ ${displayedItems.length} ತೋರಿಸಲಾಗುತ್ತಿದೆ`
+                : `Showing ${displayedItems.length} of ${filteredItems.length} photos`}
+            </p>
+          </div>
+        )}
 
       </div>
 
@@ -220,7 +203,7 @@ export function GalleryGrid() {
             <button
               type="button"
               onClick={handleClose}
-              className="absolute top-4 right-4 z-50 h-11 w-11 rounded-lg bg-white/10 hover:bg-white/25 text-white flex items-center justify-center transition-all border border-white/20 active:scale-95"
+              className="absolute top-4 right-4 z-50 h-11 w-11 rounded-lg bg-white/10 hover:bg-white/25 text-white flex items-center justify-center transition-all border border-white/20 active:scale-95 cursor-pointer"
               aria-label="Close photo preview"
             >
               <X className="h-6 w-6" />
@@ -233,7 +216,7 @@ export function GalleryGrid() {
                 e.stopPropagation();
                 handlePrev();
               }}
-              className="absolute left-3 sm:left-6 z-50 h-12 w-12 sm:h-14 sm:w-14 rounded-lg bg-black/60 hover:bg-[#8B1538] text-white flex items-center justify-center transition-all border border-white/20 active:scale-95 shadow-lg"
+              className="absolute left-3 sm:left-6 z-50 h-12 w-12 sm:h-14 sm:w-14 rounded-lg bg-black/60 hover:bg-[#8B1538] text-white flex items-center justify-center transition-all border border-white/20 active:scale-95 shadow-lg cursor-pointer"
               aria-label="Previous photo"
             >
               <ChevronLeft className="h-7 w-7" />
@@ -246,67 +229,38 @@ export function GalleryGrid() {
                 e.stopPropagation();
                 handleNext();
               }}
-              className="absolute right-3 sm:right-6 z-50 h-12 w-12 sm:h-14 sm:w-14 rounded-lg bg-black/60 hover:bg-[#8B1538] text-white flex items-center justify-center transition-all border border-white/20 active:scale-95 shadow-lg"
+              className="absolute right-3 sm:right-6 z-50 h-12 w-12 sm:h-14 sm:w-14 rounded-lg bg-black/60 hover:bg-[#8B1538] text-white flex items-center justify-center transition-all border border-white/20 active:scale-95 shadow-lg cursor-pointer"
               aria-label="Next photo"
             >
               <ChevronRight className="h-7 w-7" />
             </button>
 
-            {/* Main Modal Image & Caption Card */}
+            {/* Main Modal Image */}
             <motion.div
               key={selectedItem.id}
               initial={{ scale: 0.95, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.95, opacity: 0 }}
               transition={{ duration: 0.3 }}
-              className="relative max-w-4xl w-full max-h-[90vh] flex flex-col items-center justify-center"
+              className="relative max-w-5xl w-full max-h-[92vh] flex flex-col items-center justify-center"
               onClick={(e) => e.stopPropagation()}
             >
               {/* Photo Display */}
-              <div className="relative w-full h-[55vh] sm:h-[65vh] md:h-[70vh] rounded-2xl overflow-hidden bg-black/50 border border-white/20 shadow-2xl">
+              <div className="relative w-full h-[70vh] sm:h-[80vh] md:h-[84vh] rounded-2xl overflow-hidden bg-black/50 border border-white/20 shadow-2xl">
                 <Image
                   src={selectedItem.image}
                   alt={isKannada ? selectedItem.kannadaTitle : selectedItem.title}
                   fill
                   priority
                   unoptimized
-                  sizes="(max-width: 1024px) 100vw, 1024px"
+                  sizes="(max-width: 1024px) 100vw, 1200px"
                   className="object-contain object-center"
                 />
               </div>
 
-              {/* Caption Card Below Image */}
-              <div className="mt-3.5 w-full p-4 sm:p-5 rounded-xl bg-[#FFF7E2] border border-[#E8B947]/60 shadow-lg text-center">
-                <div className="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-md bg-[#8B1538] text-white text-[11px] font-bold uppercase tracking-wider mb-1.5">
-                  <span className={fontClass}>
-                    {locale === "kn" ? selectedItem.kannadaTag :
-                     locale === "hi" && selectedItem.hindiTag ? selectedItem.hindiTag :
-                     locale === "te" && selectedItem.teluguTag ? selectedItem.teluguTag : selectedItem.tag}
-                  </span>
-                </div>
-                <h4
-                  className={cn(
-                    "text-lg sm:text-xl font-bold text-[#74132A] mb-1 leading-snug",
-                    fontClass
-                  )}
-                >
-                  {locale === "kn" ? selectedItem.kannadaTitle :
-                   locale === "hi" && selectedItem.hindiTitle ? selectedItem.hindiTitle :
-                   locale === "te" && selectedItem.teluguTitle ? selectedItem.teluguTitle : selectedItem.title}
-                </h4>
-                <p
-                  className={cn(
-                    "text-xs sm:text-sm text-[#4A4A4A] max-w-2xl mx-auto leading-relaxed",
-                    fontClass
-                  )}
-                >
-                  {locale === "kn" ? selectedItem.kannadaDescription :
-                   locale === "hi" && selectedItem.hindiDescription ? selectedItem.hindiDescription :
-                   locale === "te" && selectedItem.teluguDescription ? selectedItem.teluguDescription : selectedItem.description}
-                </p>
-                <div className="text-[11px] text-gray-500 mt-2 font-medium">
-                  {selectedItemIndex! + 1} / {filteredItems.length}
-                </div>
+              {/* Counter Indicator */}
+              <div className="mt-3 text-xs sm:text-sm text-white/80 font-medium">
+                {selectedItemIndex! + 1} / {filteredItems.length}
               </div>
             </motion.div>
           </motion.div>
@@ -315,4 +269,3 @@ export function GalleryGrid() {
     </section>
   );
 }
-

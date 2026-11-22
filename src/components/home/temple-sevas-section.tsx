@@ -70,12 +70,12 @@ export function TempleSevasSection() {
         </div>
 
         {/* 3. Cards in 2nd Image Format */}
-        <div className="w-full max-w-[1360px]">
-          <div className="flex lg:grid lg:grid-cols-5 gap-4 sm:gap-5 lg:gap-5 overflow-x-auto lg:overflow-visible no-scrollbar snap-x snap-mandatory scroll-smooth px-2 py-4">
+        <div className="w-full max-w-[1440px]">
+          <div className="flex lg:grid lg:grid-cols-5 gap-4 sm:gap-5 lg:gap-5 xl:gap-6 overflow-x-auto lg:overflow-visible no-scrollbar snap-x snap-mandatory scroll-smooth px-2 py-4">
             {FEATURED_SEVAS.map((seva) => (
               <div
                 key={seva.id}
-                className="snap-start shrink-0 w-[260px] sm:w-[280px] lg:w-auto flex items-stretch"
+                className="snap-start shrink-0 w-[280px] sm:w-[310px] md:w-[320px] lg:w-auto flex items-stretch"
               >
                 <FeaturedSevaCardItem seva={seva} />
               </div>

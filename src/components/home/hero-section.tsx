@@ -59,7 +59,8 @@ export function HeroSection() {
         <div className="hidden md:block absolute inset-0">
           <Image
             src="/home-hero-desktop.png"
-            alt="Sri Bagalamukhi Ambadevi Devasthana Sanctum & Temple Architecture"
+            alt="Sri Ambadevi Devasthana Sanctum & Temple Architecture Somalapura Sindhanur"
+            title="Sri Ambadevi Devasthana - Sukshethra Siddha Parvatha Somalapura"
             fill
             priority
             unoptimized
@@ -72,7 +73,8 @@ export function HeroSection() {
         <div className="block md:hidden absolute inset-0">
           <Image
             src="/home-hero-mobile.png"
-            alt="Sri Bagalamukhi Ambadevi Devasthana Mobile Banner"
+            alt="Sri Ambadevi Devasthana Mobile Hero Banner Somalapura"
+            title="Sri Ambadevi Devasthana Mobile Banner"
             fill
             priority
             unoptimized
@@ -233,7 +235,8 @@ export function HeroSection() {
                     ) : (
                       <Image
                         src={item.imageSrc}
-                        alt={item.title}
+                        alt={`${item.title} - Sri Ambadevi Devasthana service`}
+                        title={`${item.title} - ${item.subtitle}`}
                         width={36}
                         height={36}
                         unoptimized

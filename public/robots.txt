@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ambhamata.surge.sh/sitemap.xml

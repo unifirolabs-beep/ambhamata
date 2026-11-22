@@ -118,29 +118,29 @@ export function AboutHistorySection() {
             <div className="relative w-full max-w-md p-3.5 sm:p-4 rounded-2xl bg-[#FFF7E2] border border-[#E8B947]/60 shadow-xs transition-all duration-300 hover:shadow-md hover:-translate-y-1">
               
               {/* Image Frame */}
-              <div className="relative w-full aspect-[4/3] rounded-xl overflow-hidden bg-white/80 border border-[#E8B947]/40 group">
+              <div className="relative w-full aspect-[3/4] rounded-xl overflow-hidden bg-white/80 border border-[#E8B947]/40 group">
                 <Image
-                  src="/temple-image.png"
-                  alt="Historic Siddha Parvatha Sri Ambamata Temple Architecture"
+                  src="/devi-idol.jpeg"
+                  alt="Sacred Moola Vigraha Idol of Goddess Sri Ambadevi at Sukshethra Siddha Parvatha"
                   fill
                   unoptimized
                   sizes="(max-width: 768px) 100vw, 420px"
-                  className="object-contain p-2 group-hover:scale-105 transition-transform duration-500"
+                  className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
                 />
                 
-                {/* Vintage Badge */}
+                {/* Sacred Badge */}
                 <div className={cn("absolute top-3 left-3 px-3 py-1 rounded-md bg-[#8B1538] text-white text-xs font-bold tracking-wide shadow-md", fontClass)}>
-                  {locale === "kn" ? "೩೪೩+ ವರ್ಷಗಳ ಪರಂಪರೆ" : locale === "hi" ? "३४३+ वर्षों की परंपरा" : locale === "te" ? "343+ సంవత్సరాల వారసత్వం" : "343+ Years Heritage"}
+                  {locale === "kn" ? "ಪವಿತ್ರ ಮೂಲ ಮೂರ್ತಿ" : locale === "hi" ? "पवित्र मूल विग्रह" : locale === "te" ? "పవిత్ర మూల విగ్రహం" : "Sacred Devi Idol"}
                 </div>
               </div>
 
               {/* Caption & Temple Details */}
               <div className="p-4 text-center">
                 <h3 className={cn("font-bold text-[#8B1538] text-lg mb-1", fontClass)}>
-                  {locale === "kn" ? "ಸಿದ್ಧ ಪರ್ವತ ದೇವಸ್ಥಾನ" : locale === "hi" ? "सिद्ध पर्वत देवस्थान" : locale === "te" ? "సిద్ధ పర్వత దేవస్థానం" : "Siddha Parvatha Devasthana"}
+                  {locale === "kn" ? "ಶ್ರೀ ಅಂಬಾದೇವಿ ಮೂಲ ಮೂರ್ತಿ" : locale === "hi" ? "श्री अम्बादेवी मूल विग्रह" : locale === "te" ? "శ్రీ అంబాదేవి మూల విగ్రహం" : "Sri Ambadevi Moola Vigraha Idol"}
                 </h3>
                 <p className={cn("text-xs text-gray-600 leading-normal mb-3", fontClass)}>
-                  {locale === "kn" ? "ಸೋಮಲಾಪುರ, ಸಿಂಧನೂರು ತಾಲೂಕು, ರಾಯಚೂರು ಜಿಲ್ಲೆ" : locale === "hi" ? "सोमलापुर, सिंधनूर तालुक, रायचूर जिला" : locale === "te" ? "సోమలాపుర, సింధనూరు తాలూకా, రాయచూరు జిల్లా" : "Somalapura, Sindhanur Taluk, Raichur District"}
+                  {locale === "kn" ? "ಪವಿತ್ರ ಗರ್ಭಗುಡಿ ಸನ್ನಿಧಿ, ಸುಕ್ಷೇತ್ರ ಸಿದ್ಧ ಪರ್ವತ ಸೋಮಲಾಪುರ" : locale === "hi" ? "पवित्र गर्भगृह, सुक्षेत्र सिद्ध पर्वत सोमलापुर" : locale === "te" ? "పవిత్ర గర్భగుడి, సుక్షేత్ర సిద్ధ పర్వతం సోమలాపురం" : "Sanctum Sanctorum, Sukshethra Siddha Parvatha, Somalapura"}
                 </p>
 
                 {/* Micro Keypoints */}
@@ -161,7 +161,7 @@ export function AboutHistorySection() {
                       className="h-4 w-4 object-contain shrink-0"
                     />
                     <span className={fontClass}>
-                      {locale === "kn" ? "ವೈದಿಕ ತಪೋಭೂಮಿ" : locale === "hi" ? "वैदिक तपोभूमि" : locale === "te" ? "వైదిక తపోభూమి" : "Vedic Tapobhoomi"}
+                      {locale === "kn" ? "ಸ್ವಯಂಭೂ ಸನ್ನಿಧಾನ" : locale === "hi" ? "स्वयंभू सानिध्य" : locale === "te" ? "స్వయంభూ సన్నిధానం" : "Swayambhoo Sannidhi"}
                     </span>
                   </div>
                 </div>

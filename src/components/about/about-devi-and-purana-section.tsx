@@ -211,6 +211,45 @@ export function AboutDeviAndPuranaSection() {
               {s5.p3}
             </p>
           </div>
+
+          {/* Sacred Deity Darshan Grid in Devi Purana */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-2xl mx-auto pt-8">
+            <div className="group relative rounded-2xl overflow-hidden bg-white p-2.5 border-2 border-[#E8B947]/70 shadow-xs hover:shadow-md transition-all duration-300">
+              <div className="relative w-full aspect-[3/4] rounded-xl overflow-hidden bg-white/90">
+                <Image
+                  src="/gallery/ambadevi.jpeg"
+                  alt="Goddess Sri Ambadevi Sacred Alankara"
+                  fill
+                  unoptimized
+                  sizes="(max-width: 640px) 100vw, 300px"
+                  className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                />
+                <div className="absolute inset-x-0 bottom-0 p-3 bg-gradient-to-t from-black/85 via-black/40 to-transparent text-white text-center">
+                  <span className={cn("block font-bold text-sm text-[#FFE6A0]", fontClass)}>
+                    {locale === "kn" ? "ಶ್ರೀ ಅಂಬಾದೇವಿ ದಿವ್ಯ ಅಲಂಕಾರ" : locale === "hi" ? "श्री अम्बादेवी दिव्य श्रृंगार" : locale === "te" ? "శ్రీ అంబాదేవి దివ్యాలంకారం" : "Sri Ambadevi Divya Alankara"}
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <div className="group relative rounded-2xl overflow-hidden bg-white p-2.5 border-2 border-[#E8B947]/70 shadow-xs hover:shadow-md transition-all duration-300">
+              <div className="relative w-full aspect-[3/4] rounded-xl overflow-hidden bg-white/90">
+                <Image
+                  src="/gallery/Matha.jpeg"
+                  alt="Sri Amba Matha Sanctum Darshan"
+                  fill
+                  unoptimized
+                  sizes="(max-width: 640px) 100vw, 300px"
+                  className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                />
+                <div className="absolute inset-x-0 bottom-0 p-3 bg-gradient-to-t from-black/85 via-black/40 to-transparent text-white text-center">
+                  <span className={cn("block font-bold text-sm text-[#FFE6A0]", fontClass)}>
+                    {locale === "kn" ? "ಶ್ರೀ ಅಂಬಾ ಮಾತಾ ಗರ್ಭಗುಡಿ" : locale === "hi" ? "श्री अम्बा माता गर्भगृह" : locale === "te" ? "శ్రీ అంబా మాత గర్భగుడి" : "Sri Amba Matha Sanctum"}
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
         </motion.div>
 
       </div>
