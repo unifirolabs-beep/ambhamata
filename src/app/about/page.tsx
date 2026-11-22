@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     title: "About History & Heritage | Sri Ambadevi Devasthana Somalapura",
     description:
       "Documented 343+ year sacred history of Sukṣhetra Siddha Parvatha Shaktipeeth Ambamath and Param Poojya Sri Chidananda Avadhoota.",
-    url: "https://ambhamata.surge.sh/about",
+    url: "https://www.sriambadevidevasthanambamath.com/about",
     type: "website",
     images: [
       {

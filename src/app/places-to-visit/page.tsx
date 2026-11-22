@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     title: "Places to Visit Near Sri Ambadevi Temple | Sindhanur Tourism",
     description:
       "Explore historic temples, heritage monuments, and pilgrim spots surrounding Somalapura in Raichur District.",
-    url: "https://ambhamata.surge.sh/places-to-visit",
+    url: "https://www.sriambadevidevasthanambamath.com/places-to-visit",
     type: "website",
     images: [
       {

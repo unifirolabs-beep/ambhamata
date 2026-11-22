@@ -5,8 +5,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "postbuild": "node -e \"const fs=require('fs'); if(fs.existsSync('out/index.html')){fs.copyFileSync('out/index.html','out/200.html'); fs.writeFileSync('out/CNAME','ambhamata.surge.sh');}\"",
-    "deploy": "npm run build && npx surge out ambhamata.surge.sh",
+    "postbuild": "node -e \"const fs=require('fs'); if(fs.existsSync('out/index.html')){fs.copyFileSync('out/index.html','out/200.html'); fs.writeFileSync('out/CNAME','www.sriambadevidevasthanambamath.com');}\"",
+    "deploy": "npm run build && npx surge out www.sriambadevidevasthanambamath.com",
     "start": "next start",
     "lint": "next lint"
   },

@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     title: "Pooja & Temple Sevas | Sri Ambadevi Devasthana Somalapura",
     description:
       "Vedic sevas, Rudrabhisheka, Kumkumarchana, and Annadana booking at Sri Ambadevi Temple, Somalapura.",
-    url: "https://ambhamata.surge.sh/sevas",
+    url: "https://www.sriambadevidevasthanambamath.com/sevas",
     type: "website",
     images: [
       {

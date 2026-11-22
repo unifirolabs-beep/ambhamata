@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     title: "Contact & Pilgrim Services | Sri Ambadevi Devasthana Somalapura",
     description:
       "Official helpline, route directions from Sindhanur & Raichur, Annadana timings, and devotee facilities at Sukṣhetra Siddha Parvatha.",
-    url: "https://ambhamata.surge.sh/contact",
+    url: "https://www.sriambadevidevasthanambamath.com/contact",
     type: "website",
     images: [
       {

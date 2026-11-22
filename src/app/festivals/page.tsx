@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     title: "Events, Festivals & Belli Rathotsava | Sri Ambadevi Devasthana",
     description:
       "Sacred annual Jatra Mahotsava, Belli Rathotsava silver chariot festival, and Sharannavaratri celebrations at Somalapura.",
-    url: "https://ambhamata.surge.sh/festivals",
+    url: "https://www.sriambadevidevasthanambamath.com/festivals",
     type: "website",
     images: [
       {

@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://ambhamata.surge.sh/sitemap.xml
+Sitemap: https://www.sriambadevidevasthanambamath.com/sitemap.xml

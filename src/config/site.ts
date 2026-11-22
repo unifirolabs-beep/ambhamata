@@ -38,7 +38,7 @@ export const siteConfig = {
   altNameTelugu: "శ్రీ అంబామాత దేవస్థానము",
   description:
     "Official portal of Sri Ambadevi Devasthana (Sri Ambamata Devasthana). Documented 343+ year sacred history, spiritual traditions of Param Poojya Sri Chidananda Avadhoota, darshan timings, pooja booking, and Belli Rathotsava at Somalapura, Sindhanur, Raichur.",
-  url: "https://ambhamata.surge.sh",
+  url: "https://www.sriambadevidevasthanambamath.com",
   navItems: [
     {
       title: "Home",

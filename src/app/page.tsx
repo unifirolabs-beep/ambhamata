@@ -10,10 +10,18 @@ import { TempleTransitionVideoSection } from "@/components/home/temple-transitio
 import { GovernmentListingSection } from "@/components/shared/government-listing-section";
 
 export const metadata: Metadata = {
-  title: "Sri Ambadevi Devasthana | Sukṣhetra Siddha Parvatha Somalapura Sindhanur",
+  title:
+    "Sri Ambadevi Devasthan, Siddaparvatha, Ambamath - Somalapur, Sindhanur (Official Website)",
   description:
-    "Official website of Sri Ambadevi Devasthana (Ambamath). Documented 343+ year sacred history, spiritual traditions of Param Poojya Sri Chidananda Avadhoota, daily darshan timings, pooja booking, free Annadana, and Belli Rathotsava at Somalapura, Sindhanur, Raichur District, Karnataka.",
+    "Official website of Sri Ambadevi Devasthan (Ambamath), Siddaparvatha, Somalapur, Sindhanur Taluk, Raichur District, Karnataka. Documented 343+ year sacred history, daily darshan timings, pooja & seva booking, free Annadana, and Belli Rathotsava festival.",
   keywords: [
+    "Sri Ambadevi Devasthan",
+    "Siddaparvatha",
+    "Ambamath",
+    "Ambarnath",
+    "Somalapur",
+    "Sindhanur",
+    "Sri Ambadevi Devasthan Siddaparvatha Ambamath Somalapur Sindhanur",
     "Sri Ambadevi Devasthana",
     "Sri Ambamata Devasthana",
     "Siddha Parvatha Shaktipeeth",
@@ -33,10 +41,11 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   openGraph: {
-    title: "Sri Ambadevi Devasthana | Sukṣhetra Siddha Parvatha Somalapura",
+    title:
+      "Sri Ambadevi Devasthan, Siddaparvatha, Ambamath - Somalapur, Sindhanur (Official Website)",
     description:
-      "Documented 343+ year sacred history, darshan timings, pooja booking, Belli Rathotsava festival, and Siddha Parvatha pilgrimage in Sindhanur, Karnataka.",
-    url: "https://ambhamata.surge.sh/",
+      "Official website of Sri Ambadevi Devasthan, Siddaparvatha, Ambamath, Somalapur, Sindhanur. Documented 343+ year sacred history, darshan timings, pooja booking, and Belli Rathotsava festival.",
+    url: "https://www.sriambadevidevasthanambamath.com/",
     type: "website",
     images: [
       {
@@ -49,9 +58,10 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Sri Ambadevi Devasthana | Sukṣhetra Siddha Parvatha Somalapura",
+    title:
+      "Sri Ambadevi Devasthan, Siddaparvatha, Ambamath - Somalapur, Sindhanur (Official Website)",
     description:
-      "Documented 343+ year sacred history, darshan timings, pooja booking, and Belli Rathotsava festival.",
+      "Official website of Sri Ambadevi Devasthan, Siddaparvatha, Ambamath, Somalapur, Sindhanur. Documented 343+ year sacred history, darshan timings, pooja booking, and Belli Rathotsava festival.",
     images: ["/devi.jpeg"],
   },
 };

@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     title: "Darshan & Daily Pooja Timings | Sri Ambadevi Devasthana",
     description:
       "General darshan hours, 7 daily pooja ceremonies, Kakada Aarti, and devotee guidelines at Somalapura.",
-    url: "https://ambhamata.surge.sh/timings",
+    url: "https://www.sriambadevidevasthanambamath.com/timings",
     type: "website",
     images: [
       {

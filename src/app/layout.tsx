@@ -3,7 +3,7 @@ import { inter, notoSansKannada } from "@/app/fonts";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { Providers } from "@/components/shared/providers";
-import { JsonLd, TEMPLE_STRUCTURED_DATA } from "@/components/seo/json-ld";
+import { JsonLd, TEMPLE_STRUCTURED_DATA, WEBSITE_STRUCTURED_DATA } from "@/components/seo/json-ld";
 import { siteConfig } from "@/config/site";
 import "./globals.css";
 
@@ -16,8 +16,9 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   title: {
-    default: `${siteConfig.name} | ${siteConfig.nameKannada}`,
-    template: `%s | ${siteConfig.name}`,
+    default:
+      "Sri Ambadevi Devasthan, Siddaparvatha, Ambamath - Somalapur, Sindhanur (Official Website)",
+    template: `%s | Sri Ambadevi Devasthan, Siddaparvatha, Somalapur`,
   },
   description: siteConfig.description,
   keywords: [
@@ -109,6 +110,7 @@ export default function RootLayout({
       className={`${inter.variable} ${notoSansKannada.variable} antialiased scroll-smooth`}
     >
       <body className="min-h-screen bg-background font-sans text-foreground flex flex-col antialiased">
+        <JsonLd data={WEBSITE_STRUCTURED_DATA} />
         <JsonLd data={TEMPLE_STRUCTURED_DATA} />
         <Providers>
           <Header />

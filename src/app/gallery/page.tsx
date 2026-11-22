@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     title: "Photo Gallery & Sacred Architecture | Sri Ambadevi Devasthana Somalapura",
     description:
       "Authentic sacred photos of Goddess Sri Ambadevi, newly sculpted granite Shila Mantapa, and annual Belli Rathotsava chariot festival.",
-    url: "https://ambhamata.surge.sh/gallery",
+    url: "https://www.sriambadevidevasthanambamath.com/gallery",
     type: "website",
     images: [
       {
