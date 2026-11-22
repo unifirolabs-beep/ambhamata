@@ -46,8 +46,86 @@ export function buildGoogleDirectionsUrl(destinationAddress: string): string {
 
 export const DESTINATION_PLACES: DestinationPlace[] = [
   {
-    id: "lakshalinga-maha-giri",
+    id: "roudkunda-ranganatha-swamy-temple",
     order: 1,
+    name: "Roudkunda Shree Laxmi Bande Ranganatha Swamy Temple",
+    shortMapLabel: "Roudkunda Ranganatha",
+    location: "Roudkunda (Sindhanur Rural), Raichur District",
+    category: "Temple / Hill",
+    distance: "10.2 km",
+    duration: "18 minutes",
+    durationShort: "18 mins",
+    description:
+      "Revered ancient hilltop cave temple dedicated to Lord Sri Laxmi Ranganatha Swamy carved on natural granite boulders, surrounded by historical fort ruins and panoramic landscape.",
+    image: "/places/roudkunda.jpg",
+    imageAlt: "Roudkunda Shree Laxmi Bande Ranganatha Swamy Temple hill and ancient shrine in Sindhanur Rural",
+    lat: 15.677425,
+    lng: 76.775358,
+    directionsDestination:
+      "Shree Laxmi Bande Ranganatha Swamy Temple, Roudkunda, Sindhanur, Raichur District, Karnataka 584128, India",
+    localizedName: {
+      kn: "ರೌಡಕುಂದ ಶ್ರೀ ಲಕ್ಷ್ಮೀ ಬಂಡೆ ರಂಗನಾಥ ಸ್ವಾಮಿ ದೇವಸ್ಥಾನ",
+      hi: "रौडकुंदा श्री लक्ष्मी बंडे रंगनाथ स्वामी मंदिर",
+      te: "రౌడకుండ శ్రీ లక్ష్మీ బండే రంగనాథ స్వామి ఆలయం",
+    },
+    localizedLocation: {
+      kn: "ರೌಡಕುಂದ (ಸಿಂಧನೂರು ಗ್ರಾಮೀಣ), ರಾಯಚೂರು ಜಿಲ್ಲೆ",
+      hi: "रौडकुंदा (सिंधनूर ग्रामीण), रायचूर ज़िला",
+      te: "రౌడకుండ (సింధనూరు గ్రామీణ), రాయచూరు జిల్లా",
+    },
+    localizedCategory: {
+      kn: "ದೇವಸ್ಥಾನ / ಬೆಟ್ಟ",
+      hi: "मंदिर / पर्वत",
+      te: "ఆలయం / కొండ",
+    },
+    localizedDescription: {
+      kn: "ನೈಸರ್ಗಿಕ ಬೃಹತ್ ಬಂಡೆಯ ಮೇಲೆ ನೆಲೆಸಿರುವ ಪುರಾತನ ಶ್ರೀ ಲಕ್ಷ್ಮೀ ರಂಗನಾಥ ಸ್ವಾಮಿಯ ದಿವ್ಯ ಗುಹಾ ದೇವಾಲಯ ಹಾಗೂ ಐತಿಹಾಸಿಕ ಕೋಟೆಯ ರಮಣೀಯ ಪರಿಸರವನ್ನು ದರ್ಶಿಸಿ.",
+      hi: "प्राकृतिक विशाल शिला पर उत्कीर्ण भगवान श्री लक्ष्मी रंगनाथ स्वामी का प्राचीन पावन मंदिर एवं ऐतिहासिक पहाड़ी का दर्शन करें।",
+      te: "సహజసిద్ధమైన భారీ బండపై కొలువైన శ్రీ లక్ష్మీ రంగనాథ స్వామి వారి పురాతన గుహాలయం మరియు చారిత్రక కొండ పరిసరాలను దర్శించండి.",
+    },
+  },
+  {
+    id: "mukkunda-murahari-swamy-temple",
+    order: 2,
+    name: "Mukkunda Murahari Swamy Temple",
+    shortMapLabel: "Mukkunda Murahari",
+    location: "Mukkunda Village, Sindhanur Taluk, Raichur District",
+    category: "Temple / River Heritage",
+    distance: "12.4 km",
+    duration: "22 minutes",
+    durationShort: "22 mins",
+    description:
+      "Centuries-old historic shrine of Lord Shri Murahari (Sri Krishna) and Somalingeshwara nestled on the scenic banks of the sacred Tungabhadra River, celebrating timeless cultural heritage.",
+    image: "/places/mukkunda.jpg",
+    imageAlt: "Ancient Shri Murahari and Somalingeshwara Temple on Tungabhadra river banks at Mukkunda village",
+    lat: 15.60583,
+    lng: 76.81722,
+    directionsDestination:
+      "Ancient Shri Murahari and Somalingeshwara Temple, Mukkunda Village, Sindhanur Taluk, Raichur District, Karnataka 584128, India",
+    localizedName: {
+      kn: "ಮುಕ್ಕುಂದ ಮುರಹರಿ ಸ್ವಾಮಿ ಮತ್ತು ಸೋಮಲಿಂಗೇಶ್ವರ ದೇವಸ್ಥಾನ",
+      hi: "मुक्कुंदा मुरहरि स्वामी एवं सोमलिंगेश्वर मंदिर",
+      te: "ముక్కుంద మురహరి స్వామి & సోమలింగేశ్వర ఆలయం",
+    },
+    localizedLocation: {
+      kn: "ಮುಕ್ಕುಂದ ಗ್ರಾಮ, ಸಿಂಧನೂರು ತಾಲೂಕು, ರಾಯಚೂರು ಜಿಲ್ಲೆ",
+      hi: "मुक्कुंदा ग्राम, सिंधनूर तालुक, रायचूर ज़िला",
+      te: "ముక్కుంద గ్రామం, సింధనూరు తాలూకా, రాయచూరు జిల్లా",
+    },
+    localizedCategory: {
+      kn: "ದೇವಸ್ಥಾನ / ನದಿ ಪರಂಪರೆ",
+      hi: "मंदिर / नदीय विरासत",
+      te: "ఆలయం / నదీ తీరం",
+    },
+    localizedDescription: {
+      kn: "ಪವಿತ್ರ ತುಂಗಭದ್ರಾ ನದಿಯ ತೀರದಲ್ಲಿ ನೆಲೆಸಿರುವ 600ಕ್ಕೂ ಹೆಚ್ಚು ವರ್ಷಗಳ ಇತಿಹಾಸವಿರುವ ಶ್ರೀ ಮುರಹರಿ (ಕೃಷ್ಣ) ಹಾಗೂ ಸೋಮಲಿಂಗೇಶ್ವರ ದೇವಸ್ಥಾನದ ಪಾವನ ಸನ್ನಿಧಿಗೆ ಭೇಟಿ ನೀಡಿ.",
+      hi: "पवित्र तुंगभद्रा नदी के तट पर स्थित 600 वर्षों से अधिक प्राचीन श्री मुरहरि (कृष्ण) एवं सोमलिंगेश्वर मंदिर के दर्शन करें।",
+      te: "పవిత్ర తుంగభద్ర నదీ తీరాన ఉన్న 600 ఏళ్లకు పైగా పురాతన చరిత్ర కలిగిన శ్రీ మురహరి (కృష్ణ) మరియు సోమలింగేశ్వర దివ్య క్షేత్రాన్ని దర్శించండి.",
+    },
+  },
+  {
+    id: "lakshalinga-maha-giri",
+    order: 3,
     name: "Lakshalinga Maha Giri Temple",
     shortMapLabel: "Lakshalinga",
     location: "Hanumapur",
@@ -86,7 +164,7 @@ export const DESTINATION_PLACES: DestinationPlace[] = [
   },
   {
     id: "maski-archaeological-site",
-    order: 2,
+    order: 4,
     name: "Maski Archaeological Site",
     shortMapLabel: "Maski",
     location: "Maski",
@@ -125,7 +203,7 @@ export const DESTINATION_PLACES: DestinationPlace[] = [
   },
   {
     id: "mudgal-fort",
-    order: 3,
+    order: 5,
     name: "Mudgal Fort",
     shortMapLabel: "Mudgal",
     location: "Mudgal",
@@ -163,7 +241,7 @@ export const DESTINATION_PLACES: DestinationPlace[] = [
   },
   {
     id: "anjanadri-betta",
-    order: 4,
+    order: 6,
     name: "Anjanadri Betta",
     shortMapLabel: "Anjanadri Betta",
     location: "Anegundi",
@@ -201,7 +279,7 @@ export const DESTINATION_PLACES: DestinationPlace[] = [
   },
   {
     id: "pampa-sarovar-anegundi",
-    order: 5,
+    order: 7,
     name: "Pampa Sarovar & Anegundi",
     shortMapLabel: "Pampa Sarovar",
     location: "Anegundi",
@@ -239,7 +317,7 @@ export const DESTINATION_PLACES: DestinationPlace[] = [
   },
   {
     id: "hampi-temples",
-    order: 6,
+    order: 8,
     name: "Hampi – Virupaksha & Vittala Temples",
     shortMapLabel: "Hampi",
     location: "Hampi",
@@ -278,7 +356,7 @@ export const DESTINATION_PLACES: DestinationPlace[] = [
   },
   {
     id: "raichur-fort",
-    order: 7,
+    order: 9,
     name: "Raichur Fort",
     shortMapLabel: "Raichur Fort",
     location: "Raichur",
@@ -316,7 +394,7 @@ export const DESTINATION_PLACES: DestinationPlace[] = [
   },
   {
     id: "gavisiddheshwara-matha",
-    order: 8,
+    order: 10,
     name: "Sri Gavisiddheshwara Matha",
     shortMapLabel: "Gavi Matha",
     location: "Koppal",
@@ -355,7 +433,7 @@ export const DESTINATION_PLACES: DestinationPlace[] = [
   },
   {
     id: "mantralayam-raghavendra-mutt",
-    order: 9,
+    order: 11,
     name: "Mantralayam – Sri Raghavendra Swamy Mutt",
     shortMapLabel: "Mantralayam",
     location: "Mantralayam",
@@ -394,7 +472,7 @@ export const DESTINATION_PLACES: DestinationPlace[] = [
   },
   {
     id: "panchamukhi-anjaneya-temple",
-    order: 10,
+    order: 12,
     name: "Panchamukhi Anjaneya Temple",
     shortMapLabel: "Panchamukhi",
     location: "Ganadhal",
@@ -433,7 +511,7 @@ export const DESTINATION_PLACES: DestinationPlace[] = [
   },
   {
     id: "shri-kshetra-kuruvapur",
-    order: 11,
+    order: 13,
     name: "Shri Kshetra Kuruvapur",
     shortMapLabel: "Kuruvapur",
     location: "Kuruvapur",
